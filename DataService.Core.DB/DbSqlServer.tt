@@ -1,0 +1,15 @@
+﻿<#@ template language="C#" debug="True" hostSpecific="True"                    #>
+<#@ CleanupBehavior processor="T4VSHost" CleanupAfterProcessingtemplate="true" #>
+<#@ output extension=".generated.cs"                                           #>
+
+<#@ include file="$(LinqToDBT4SqlServerTemplatesPath)LinqToDB.SqlServer.Tools.ttinclude" once="true" #>
+<#@ include file="$(LinqToDBT4SqlServerTemplatesPath)PluralizationService.ttinclude"     once="true" #>
+<#
+
+	DataContextName = "APIDB"; 
+	BaseEntityClass = "BSPL.Domain.IEntity";
+	string connectionString = "Server=.\\SQLEXPRESS;Database=ResturantDB;User id = root; Password=123;";
+	LoadSqlServerMetadata(connectionString);
+
+	GenerateModel();
+#>

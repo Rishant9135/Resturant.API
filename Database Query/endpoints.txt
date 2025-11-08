@@ -1,0 +1,86 @@
+1. Install node in your system
+
+2. npm install -g json-server@latest
+
+3. create db.json in any folder 
+
+4. json-server --watch db.json --port 5000
+
+5. where json-server
+
+6. npm uninstall -g json-server
+
+7. json-server --version
+
+8. npm install -g json-server@0.17.4
+
+9. json-server --watch db.json --host 192.168.2.6 --port 5000
+
+
+******************Tables Name*********************
+1. userTable
+2. categoryTable
+3. menuTable
+4. cartTable
+5. orderTable
+6. orderStatusTable
+7. reservationsTable
+8. reviewsTable
+9. offersTable
+10. NotificationsTable
+11. addressesTable
+12. imagesTable
+
+
+**************************API EndPoints****************************
+
+http://192.168.6.240:5000/users
+http://192.168.6.240:5000/categories
+http://192.168.6.240:5000/menu
+http://192.168.6.240:5000/cart
+http://192.168.6.240:5000/orders
+http://192.168.6.240:5000/orderStatus
+http://192.168.6.240:5000/reservations
+http://192.168.6.240:5000/reviews
+http://192.168.6.240:5000/offers
+http://192.168.6.240:5000/notifications
+http://192.168.6.240:5000/addresses
+http://192.168.6.240:5000/images
+
+http://localhost:5000/menu/5   -> Get Specific Detail with Id
+http://localhost:5000/menu?categoryId=5
+http://localhost:5000/menu?q=chicken           -> Search Globally  --> Not Working -> work in 0.17.4
+http://localhost:5000/menu?name_like=paneer    -> Search in name Field  --> Not Working -> work in 0.17.4
+http://localhost:5000/menu?description_like=spicy    -> Search in description Field  --> Not Working -> work in 0.17.4
+http://localhost:5000/menu?categoryId=2&name_like=paneer  --> Not Working -> work in 0.17.4
+http://localhost:5000/cart?UserId=5&menuId=2
+http://localhost:5000/addresses?userId=2
+http://localhost:5000/addresses?address=Your Address UserId 2 and Address 1
+http://localhost:5000/menu?name=paneer
+http://192.168.6.221:5000/menu?_page=3&_limit=20
+
+--------------------------------------------------POST--------------------------------------
+http://192.168.6.221:5000/users
+{
+  "name": "Siddharth Kumar",
+  "email": "siddharth@example.com",
+  "password": "pass123",
+  "phone": "9876505678",
+  "address": "Mumbai, India"
+}
+
+------------------------------------PUT----------------------------------------
+http://192.168.6.221:5000/users/2
+{
+  "name": "Siddharth Kumar",
+  "email": "siddharth@example.com",
+  "password": "pass123",
+  "phone": "9876505678",
+  "address": "Mumbai, India"
+}
+------------------------------------PATCH----------------------------------------
+http://192.168.6.221:5000/users/2
+{
+  "phone": "9135717859",
+  "address": "Mumbai, India"
+}

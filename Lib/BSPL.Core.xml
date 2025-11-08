@@ -1,0 +1,2486 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BSPL.Core</name>
+    </assembly>
+    <members>
+        <member name="T:BSPL.Common.Builders.PathBuilder">
+            <summary>
+            elper to build FS Path
+            </summary>
+        </member>
+        <member name="M:BSPL.Common.Builders.PathBuilder.#ctor(System.String)">
+            <summary>
+            Root path to start with
+            </summary>
+            <param name="basePath"></param>
+        </member>
+        <member name="M:BSPL.Common.Builders.PathBuilder.#ctor">
+            <summary>
+            Ctor
+            </summary>
+        </member>
+        <member name="M:BSPL.Common.Builders.PathBuilder.Add(System.String)">
+            <summary>
+            Adding Path Part
+            </summary>
+            <param name="pathPart">Part to be added</param>
+            <returns>Same object for method chaining</returns>
+        </member>
+        <member name="M:BSPL.Common.Builders.PathBuilder.AddJpg">
+            <summary>
+            Deciding on final extention as jpg  
+            </summary>
+            <returns>Same object for method chaining</returns>
+        </member>
+        <member name="M:BSPL.Common.Builders.PathBuilder.AddGif">
+            <summary>
+            Deciding on final extention as gif  
+            </summary>
+            <returns>Same object for method chaining</returns>
+        </member>
+        <member name="M:BSPL.Common.Builders.PathBuilder.Build">
+            <summary>
+            Building the path  
+            </summary>
+            <returns>Final Path</returns>
+        </member>
+        <member name="T:BSPL.Common.Extensions">
+            <summary>
+            Reusable extension methods
+            </summary>
+        </member>
+        <member name="M:BSPL.Common.Extensions.CreateModel(System.Type)">
+            <summary>
+            This method helps to create POCO for any entity
+            </summary>
+            <param name="entity">Type of entity for which POCO is desired</param>
+            <returns>Code for desired POCPO</returns>
+        </member>
+        <member name="M:BSPL.Common.Extensions.CreateModel(System.String,System.String,System.Type[])">
+            <summary>
+            Method to create POCO models for given entities
+            </summary>
+            <param name="destinationFolder">Folder where models to be created</param>
+            <param name="namespaceForModels">Namespace for models</param>
+            <param name="entities">List of entities for which models are desired</param>
+        </member>
+        <member name="M:BSPL.Common.Extensions.GetMySqlCreateTableScript(System.Type)">
+            <summary>
+            Extension to create MySql create table script from Model
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Common.Extensions.GetMySqlType(System.Reflection.PropertyInfo)">
+            <summary>
+            Method to get MySql Type mapping to c# PropertyInfo
+            </summary>
+            <param name="prop"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Common.Extensions.GetMySqlType(System.Type)">
+            <summary>
+            Method to get MySql Type mapping to c# Type
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Common.Extensions.GetPropertyValue``2(``0,System.String)">
+            <summary>
+            Get value of property of an object by name
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TRet"></typeparam>
+            <param name="obj"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Common.Extensions.GetPropertyType(System.Type,System.String)">
+            <summary>
+            Get Type of the property of any object by property name
+            </summary>
+            <param name="t"></param>
+            <param name="propertyName"></param>
+            <returns></returns>
+        </member>
+        <member name="F:BSPL.Common.Extensions.BASE_YEAR_FOR_TIME_IN_SEC">
+            <summary>
+            BASE_YEAR_FOR_TIME_IN_SEC
+            </summary>
+        </member>
+        <member name="M:BSPL.Common.Extensions.ParseSlashedDateTime(System.String,System.DateTime)">
+            <summary>
+            To Parse datetime in dd/MM/yyyy hh:mmtt format
+            </summary>
+            <param name="dateTimeString"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Common.Extensions.ToSec(System.DateTime)">
+            <summary>
+            Date time to seconds since 2010
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Common.Extensions.ToSec(System.Nullable{System.DateTime})">
+            <summary>
+            Date time to seconds since 2010
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Common.Extensions.ToMin(System.DateTime)">
+            <summary>
+            Date time to minutes since 2010
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Common.Extensions.ToMin(System.Nullable{System.DateTime})">
+            <summary>
+            Date time to minutes since 2010
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Common.Extensions.FirstOrDefault``1(System.Collections.Generic.IList{``0})">
+            <summary>
+            First or default for list
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Common.Extensions.First``1(System.Collections.Generic.IList{``0},``0)">
+            <summary>
+            First or given default for a list
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Common.Extensions.FromJson``1(System.String)">
+            <summary>
+            Convert JSON to Object
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="json"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Common.Extensions.ToJson``1(``0)">
+            <summary>
+            Convert any object to JSON string
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Common.Extensions.ParseEnum``1(System.String,``0)">
+            <summary>
+            Parse a enum value from string return default is fails
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="name"></param>
+            <param name="def"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Common.Extensions.NullSafeIgnoreCaseContains(System.String,System.String)">
+            <summary>
+            Null Safe Ignore Case Contains
+            </summary>
+            <param name="str"></param>
+            <param name="keyword"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Common.Extensions.IsNullOrEmpty(System.Collections.IList)">
+            <summary>
+            checks a list if its Null Or Empty
+            </summary>
+            <param name="lst"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Common.Extensions.CircleToPlygon(System.Double,System.Double,System.Int32,System.Int32)">
+            <summary>
+            Device circles circumference in to equal parts and create polygon by joining these cut points  
+            </summary>
+            <param name="lat"></param>
+            <param name="lng"></param>
+            <param name="radius"></param>
+            <param name="pointCount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Common.Extensions.Base64Encode(System.String)">
+            <summary>
+            Convert any string to base64 string
+            </summary>
+            <param name="plainText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Common.Extensions.Base64Decode(System.String)">
+            <summary>
+            Convert (decode) any base64 string to plain text
+            </summary>
+            <param name="base64EncodedData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Common.Extensions.IsIdAnIdentityColumn(System.Type)">
+            <summary>
+            To determine if entity's Id column is Identity type or not
+            </summary>
+            <param name="entityType">Type of entity</param>
+            <returns>True is its Id is Identity type</returns>
+        </member>
+        <member name="M:BSPL.Common.Extensions.And``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Method to merge two boolean returning expressions in And manner
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Common.Extensions.And2``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Method to merge two boolean returning expressions in And manner
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Common.Extensions.Or``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Method to merge two boolean returning expressions in Or manner
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Common.Extensions.AnyOf``1(System.Collections.Generic.List{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}}})">
+            <summary>
+            Aggregate all lambda conditions into one by OR condition
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="expressions"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Common.Extensions.AllOf``1(System.Collections.Generic.List{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}}})">
+            <summary>
+            Aggregate all lambda conditions into one by AND condition
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="expressions"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BSPL.Common.GlobalSettings">
+            <summary>
+            Global settings to be applied default
+            </summary>
+        </member>
+        <member name="F:BSPL.Common.GlobalSettings.Culture">
+            <summary>
+            Default culture
+            </summary>
+        </member>
+        <member name="F:BSPL.Common.GlobalSettings.CurrencyFormatConvertor">
+            <summary>
+            Default currency converter
+            </summary>
+        </member>
+        <member name="T:BSPL.Common.Logging.IAppender">
+            <summary>  Interface for classes that output log
+            statements 
+            
+            </summary>
+            <author>       Bruce Blackshaw
+            </author>
+            <version>      $Revision: 1.5 $
+            </version>
+        </member>
+        <member name="M:BSPL.Common.Logging.IAppender.Close">
+            <summary> Close this appender</summary>
+        </member>
+        <member name="M:BSPL.Common.Logging.IAppender.Log(System.String)">
+            <summary> Log a message
+            
+            </summary>
+            <param name="msg"> message to log
+            </param>
+        </member>
+        <member name="M:BSPL.Common.Logging.IAppender.Log(System.Exception)">
+            <summary> 
+            Log a stack trace
+            </summary>
+            <param name="exception"> throwable object
+            </param>
+        </member>
+        <member name="T:BSPL.Common.Logging.ICustomLogLevelAppender">
+            <summary>
+            Extends <see cref="T:BSPL.Common.Logging.IAppender"/> by allowing an appender to have its own log-level.
+            </summary>
+            <remarks>
+            Appenders implementing this interface have their own log-level, which overrides the global
+            logging level, <see cref="T:BSPL.Common.Logging.Level"/>.
+            </remarks>
+        </member>
+        <member name="P:BSPL.Common.Logging.ICustomLogLevelAppender.CurrentLevel">
+            <summary>
+            Logging level for this appender.  This does not affect the global logging level.
+            </summary>
+        </member>
+        <member name="F:BSPL.Common.Logging.Level.OFF">
+            <summary> Off level</summary>
+        </member>
+        <member name="F:BSPL.Common.Logging.Level.FATAL">
+            <summary> Fatal level</summary>
+        </member>
+        <member name="F:BSPL.Common.Logging.Level.ERROR">
+            <summary> OFF level</summary>
+        </member>
+        <member name="F:BSPL.Common.Logging.Level.WARN">
+            <summary> Warn level</summary>
+        </member>
+        <member name="F:BSPL.Common.Logging.Level.INFO">
+            <summary> Info level</summary>
+        </member>
+        <member name="F:BSPL.Common.Logging.Level.DEBUG">
+            <summary> Debug level</summary>
+        </member>
+        <member name="F:BSPL.Common.Logging.Level.ALL">
+            <summary> All level</summary>
+        </member>
+        <member name="F:BSPL.Common.Logging.Level.level">
+            <summary> The level's integer value</summary>
+        </member>
+        <member name="F:BSPL.Common.Logging.Level.levelStr">
+            <summary> The level's string representation</summary>
+        </member>
+        <member name="M:BSPL.Common.Logging.Level.#ctor(BSPL.Common.Logging.LogLevel,System.String)">
+            <summary> 
+            Private constructor so no-one outside the class can
+            create any more instances
+            </summary>
+            <param name="level">    level to set this instance at
+            </param>
+            <param name="levelStr">   string representation
+            </param>
+        </member>
+        <member name="M:BSPL.Common.Logging.Level.GetLevel">
+            <summary> 
+            Get integer log level
+            </summary>
+            <returns> log level
+            </returns>
+        </member>
+        <member name="M:BSPL.Common.Logging.Level.IsGreaterOrEqual(BSPL.Common.Logging.Level)">
+            <summary> 
+            Is this level greater or equal to the supplied level
+            </summary>
+            <param name="l">     level to test against
+            </param>
+            <returns>  true if greater or equal to, false if less than
+            </returns>
+        </member>
+        <member name="M:BSPL.Common.Logging.Level.GetLevel(System.String)">
+            <summary> 
+            Get level from supplied string
+            </summary>
+            <param name="level">level as a string
+            </param>
+            <returns> level object or null if not found
+            </returns>
+        </member>
+        <member name="M:BSPL.Common.Logging.Level.GetLevel(BSPL.Common.Logging.LogLevel)">
+            <summary>
+            Converts a <see cref="T:BSPL.Common.Logging.LogLevel"/> enum to a <c>Level</c> object.
+            </summary>
+            <param name="level"><see cref="T:BSPL.Common.Logging.LogLevel"/> enum to convert.</param>
+            <returns>A <c>Level</c> object corresponding to the given LogLevel.</returns>
+        </member>
+        <member name="M:BSPL.Common.Logging.Level.ToString">
+            <summary> 
+            String representation
+            </summary>
+            <returns> string
+            </returns>
+        </member>
+        <member name="T:BSPL.Common.Logging.LogLevel">
+            <summary>
+            Enumeration specifying logging levels.
+            </summary>
+        </member>
+        <member name="F:BSPL.Common.Logging.LogLevel.Off">
+            <summary>No logging</summary>
+        </member>
+        <member name="F:BSPL.Common.Logging.LogLevel.Fatal">
+            <summary>Fatal error messages only</summary>
+        </member>
+        <member name="F:BSPL.Common.Logging.LogLevel.Error">
+            <summary>Error messages</summary>
+        </member>
+        <member name="F:BSPL.Common.Logging.LogLevel.Warning">
+            <summary>Warning and erorr messages</summary>
+        </member>
+        <member name="F:BSPL.Common.Logging.LogLevel.Information">
+            <summary>Information, warning and error messages</summary>
+        </member>
+        <member name="F:BSPL.Common.Logging.LogLevel.Debug">
+            <summary>Debugging, information, warning, and error messages</summary>
+        </member>
+        <member name="F:BSPL.Common.Logging.LogLevel.All">
+            <summary>All logging</summary>
+        </member>
+        <member name="M:BSPL.Common.Mappers.Mapper.CopyValuesFrom(System.Object,System.Object,System.String[])">
+            <summary>
+            Copy value from one object to another by mapping them by property names
+            </summary>
+            <param name="destination"></param>
+            <param name="source"></param>
+            <param name="except"></param>
+        </member>
+        <member name="M:BSPL.Common.Mappers.SimpleMappers.getNullSafeValue(System.Object)">
+            ToDo:Need to be fixed
+        </member>
+        <member name="T:BSPL.Common.Models.FullListingRecordRestrictions">
+            <summary>
+            Any restrictions to be apply on full listing of data
+            </summary>
+        </member>
+        <member name="F:BSPL.Common.Models.FullListingRecordRestrictions.None">
+            <summary>
+            No Restrictions on full listing
+            </summary>
+        </member>
+        <member name="F:BSPL.Common.Models.FullListingRecordRestrictions.NotAllowed">
+            <summary>
+            Full Listing Not Allowed
+            </summary>
+        </member>
+        <member name="F:BSPL.Common.Models.FullListingRecordRestrictions.Top100Only">
+            <summary>
+            Top 100 records are allowed in full listing
+            </summary>
+        </member>
+        <member name="F:BSPL.Common.Models.FullListingRecordRestrictions.Top1000Only">
+            <summary>
+            Top 1000 records are allowed in full listing
+            </summary>
+        </member>
+        <member name="F:BSPL.Common.Models.FullListingRecordRestrictions.Top10000Only">
+            <summary>
+            Top 10000 records are allowed in full listing
+            </summary>
+        </member>
+        <member name="P:BSPL.Common.Models.IWebUser.ClientUid">
+            <summary>
+            To identify user bowser uniquely
+            </summary>
+        </member>
+        <member name="T:BSPL.Common.Models.ValidationError">
+            <summary>
+            Represent a user input or data validation error
+            </summary>
+        </member>
+        <member name="P:BSPL.Common.Models.ValidationError.Error">
+            <summary>
+            Validation error message
+            </summary>
+        </member>
+        <member name="P:BSPL.Common.Models.ValidationError.Field">
+            <summary>
+            Field for which validation is failed
+            </summary>
+        </member>
+        <member name="P:BSPL.Common.Models.ValidationError.Suggestion">
+            <summary>
+            Suggestons if any to resolve the same
+            </summary>
+        </member>
+        <member name="M:BSPL.Common.Models.ValidationError.#ctor(System.String)">
+            <summary>
+            Constructor with error message as parameter
+            </summary>
+            <param name="error">Error Message</param>
+        </member>
+        <member name="T:BSPL.Common.Models.WebResponseModel`1">
+            <summary>
+            Represents a composite and consistent web results to handle happy path and handled error scenarios as 200 OK with error information
+            </summary>
+            <typeparam name="TModel"></typeparam>
+        </member>
+        <member name="P:BSPL.Common.Models.WebResponseModel`1.Result">
+            <summary>
+            Web result representing mainly success or fail
+            </summary>
+        </member>
+        <member name="P:BSPL.Common.Models.WebResponseModel`1.Data">
+            <summary>
+            Payload in case of success or sometimes even error
+            </summary>
+        </member>
+        <member name="M:BSPL.Common.Models.WebResponseModel`1.#ctor">
+            <summary>
+            Empty webresponse with no error
+            </summary>
+        </member>
+        <member name="M:BSPL.Common.Models.WebResponseModel`1.#ctor(`0)">
+            <summary>
+            Webresponse with valid payload
+            </summary>
+            <param name="model">Data payload</param>
+        </member>
+        <member name="M:BSPL.Common.Models.WebResponseModel`1.#ctor(`0,System.String)">
+            <summary>
+            Webresponse in case of error
+            </summary>
+            <param name="model">Payload if required</param>
+            <param name="error">Error in processing</param>
+        </member>
+        <member name="T:BSPL.Common.Models.WebResult">
+            <summary>
+            Model to represent web query result
+            Mainly used for sending validation errors back to caller if any
+            </summary>
+        </member>
+        <member name="P:BSPL.Common.Models.WebResult.HasError">
+            <summary>
+            True in case of web / validation exception
+            </summary>
+        </member>
+        <member name="P:BSPL.Common.Models.WebResult.Error">
+            <summary>
+            Validation error if any
+            </summary>
+        </member>
+        <member name="M:BSPL.Common.Models.WebResult.#ctor">
+            <summary>
+            Parameter less constructor whic represent no error scenario
+            </summary>
+        </member>
+        <member name="M:BSPL.Common.Models.WebResult.#ctor(System.String)">
+            <summary>
+            Error message as parameter constructor whic represent error scenario
+            </summary>
+            <param name="error">Error message</param>
+        </member>
+        <member name="T:BSPL.Common.Net.CookieAwareWebClient">
+            <summary>
+            Webclient which retains the cookies for session management
+            </summary>
+        </member>
+        <member name="P:BSPL.Common.Net.CookieAwareWebClient.Timeput">
+            <summary>
+            Request Timeout in milliseconds 
+            </summary>
+        </member>
+        <member name="M:BSPL.Common.Net.CookieAwareWebClient.#ctor(System.Int32)">
+            <summary>
+            Constractor with optional parameter for timeout
+            </summary>
+            <param name="timeput">Request Timeout in milliseconds </param>
+        </member>
+        <member name="M:BSPL.Common.Net.CookieAwareWebClient.GetWebRequest(System.Uri)">
+            <summary>
+            Override this method if need to change any common webrequest behaviour
+            </summary>
+            <param name="address"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Common.Net.CookieAwareWebClient.DownloadText(System.String)">
+            <summary>
+            Download url as string
+            </summary>
+            <param name="url">url to be downloaded</param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Common.Net.CookieAwareWebClient.Post(System.String,System.String,System.String)">
+            <summary>
+            Method to create post request
+            </summary>
+            <param name="url">Post target url</param>
+            <param name="data">Data to be sent as post payload</param>
+            <param name="referer">Referer url</param>
+            <returns>Returned data as string</returns>
+        </member>
+        <member name="T:BSPL.Common.Net.NetHelper">
+            <summary>
+            Network related helper
+            </summary>
+        </member>
+        <member name="M:BSPL.Common.Net.NetHelper.GetIp(System.String)">
+            <summary>
+            To resolve host name to ip
+            </summary>
+            <param name="domain">Domain name to be resolved</param>
+            <returns>Resolved Ip address</returns>
+        </member>
+        <member name="M:BSPL.Common.Net.NetHelper.LoadUrlEx(System.String)">
+            <summary>
+            Get URL content as text using WebClient
+            </summary>
+            <param name="url">Url to be fetched</param>
+            <returns>Content of url</returns>
+        </member>
+        <member name="M:BSPL.Common.Net.NetHelper.LoadUrl(System.String)">
+            <summary>
+            Get URL content as text using WebRequest
+            </summary>
+            <param name="url">Url to be fetched</param>
+            <returns>Content of url</returns>
+        </member>
+        <member name="T:BSPL.Common.Net.PingHelper">
+            <summary>
+            Tool to check host or url on net is approchable or not
+            </summary>
+        </member>
+        <member name="M:BSPL.Common.Net.PingHelper.IsAlive(System.String)">
+            <summary>
+            Ping ip and see if res responce successful with 5 sec as timeout
+            </summary>
+            <param name="ip">IP of Host</param>
+            <returns>True if response is success</returns>
+        </member>
+        <member name="M:BSPL.Common.Net.PingHelper.IsAlive(System.String,System.Int32)">
+            <summary>
+            Ping ip and see if res responce successful
+            </summary>
+            <param name="ip">IP of Host</param>
+            <param name="timeout">specifies the maximum number of milliseconds to wait for reply.</param>
+            <returns>True if response is success</returns>
+        </member>
+        <member name="M:BSPL.Common.Net.PingHelper.GetPingResponse(System.String)">
+            <summary>
+            Ping an IP and get the responce with 5 sec as timeout
+            </summary>
+            <param name="ip">IP Address</param>
+            <returns>Ping Responce</returns>
+        </member>
+        <member name="M:BSPL.Common.Net.PingHelper.GetPingResponse(System.String,System.Int32)">
+            <summary>
+            Ping an IP and get the responce
+            </summary>
+            <param name="ip">IP Address</param>
+            <param name="timeout">specifies the maximum number of milliseconds to wait for reply.</param>
+            <returns>Ping Responce</returns>
+        </member>
+        <member name="M:BSPL.Common.Net.PingHelper.PingUrl(System.String)">
+            <summary>
+            To check if host is connectable using http protocal
+            </summary>
+            <param name="requestUrl">Url to be checked</param>
+            <returns>If successful to conect or not</returns>
+        </member>
+        <member name="T:BSPL.Common.Utils.HtmlHelper">
+            <summary>
+            Helper class for rendering and stml formatting
+            </summary>
+        </member>
+        <member name="M:BSPL.Common.Utils.HtmlHelper.HtmlToPlainText(System.String)">
+            <summary>
+            Conert HTML to plain text
+            </summary>
+            <param name="html">Html to be cleaned</param>
+            <returns>plain text</returns>
+        </member>
+        <member name="M:BSPL.Common.Utils.HtmlHelper.RenderTemplate``1(System.String,``0)">
+            <summary>
+            Render a templete to text by supstiting values with object values
+            </summary>
+            <typeparam name="T">Type of passed model to be used to transform</typeparam>
+            <param name="templete">Text Templete</param>
+            <param name="values">Model to be used</param>
+            <returns>Rendered templete</returns>
+        </member>
+        <member name="T:BSPL.Domain.IEntity">
+            <summary>
+            Entity base interface
+            </summary>
+        </member>
+        <member name="P:BSPL.Domain.IEntity.Id">
+            <summary>
+            PK Id of entity
+            </summary>
+        </member>
+        <member name="T:BSPL.Domain.IEntityEx">
+            <summary>
+            Entity base interface with created and updated information
+            </summary>
+        </member>
+        <member name="P:BSPL.Domain.IEntityEx.CreatedBy">
+            <summary>
+            User who crated the record 
+            </summary>
+        </member>
+        <member name="P:BSPL.Domain.IEntityEx.CreatedOn">
+            <summary>
+            Creation date time
+            </summary>
+        </member>
+        <member name="P:BSPL.Domain.IEntityEx.UpdatedBy">
+            <summary>
+            User who updated the record last
+            </summary>
+        </member>
+        <member name="P:BSPL.Domain.IEntityEx.UpdatedOn">
+            <summary>
+            Lastr Update on date time
+            </summary>
+        </member>
+        <member name="T:BSPL.Domain.SortOrder">
+            <summary>
+            Sorting order of Data
+            </summary>
+        </member>
+        <member name="F:BSPL.Domain.SortOrder.Ascending">
+            <summary>
+            Represents Sort Order as Small To Large
+            </summary>
+        </member>
+        <member name="F:BSPL.Domain.SortOrder.Descending">
+            <summary>
+            Represents Sort Order as Large To Small
+            </summary>
+        </member>
+        <member name="T:BSPL.Domain.IReadOnlyRepository`1">
+            <summary>
+            Base Interface to represent readonly repository
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+        </member>
+        <member name="M:BSPL.Domain.IReadOnlyRepository`1.Get(System.Int64)">
+            <summary>
+            Get an entity by Id
+            </summary>
+            <param name="id">Entity Id</param>
+            <returns>Entity for given Id</returns>
+        </member>
+        <member name="M:BSPL.Domain.IReadOnlyRepository`1.ListAll(System.Collections.Generic.IEnumerable{System.Int64})">
+            <summary>
+            To get List of all entities for given IDs
+            </summary>
+            <returns>all entities for given IDs</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:BSPL.Domain.IReadOnlyRepository`1.ListPage(System.Int32,System.Int32,System.Int32@,System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})" -->
+        <member name="M:BSPL.Domain.IReadOnlyRepository`1.ListPage(System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            List data in given and paged mannr after applying specified filter and sorting by Id desc
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="pageSize"></param>
+            <param name="pageNumber"></param>
+            <param name="totalResults">Tital records stasfying filter</param>
+            <returns>Data for given page number and size order by id desc</returns>
+        </member>
+        <member name="M:BSPL.Domain.IReadOnlyRepository`1.ListTop(System.Int32)">
+            <summary>
+            List available top records after applying specified filter and sorting by Id Desc
+            </summary>
+            <param name="maxRows">Maximum rows to be returned</param>
+            <returns>List of top records after applying specified filter and sorting by Id Desc</returns>
+        </member>
+        <member name="T:BSPL.Domain.IRepository`1">
+            <summary>
+            Generic Interface for Repository
+            </summary>
+            <typeparam name="TEntity">Type reference for Entity</typeparam>
+        </member>
+        <member name="M:BSPL.Domain.IRepository`1.Update(`0)">
+            <summary>
+            Method to Update an entity
+            </summary>
+            <param name="updatedEntity">Entity to be updated</param>
+            <returns>Updated entity</returns>
+        </member>
+        <member name="M:BSPL.Domain.IRepository`1.BulkUpdate(`0[])">
+            <summary>
+            Method to update multiple entities in one transaction
+            </summary>
+            <param name="updatedEntities">List of entities to be updated</param>
+            <returns>Number of rows affected</returns>
+        </member>
+        <member name="M:BSPL.Domain.IRepository`1.Insert(`0)">
+            <summary>
+            Method to insert an entity
+            </summary>
+            <param name="newEntity">Entity to be inserted</param>
+            <returns>Inserted Entity</returns>
+        </member>
+        <member name="P:BSPL.Domain.IRepository`1.IsIdIdentityType">
+            <summary>
+            Just to check is Id column is identity type (Auto Generate) or not
+            </summary>
+        </member>
+        <member name="M:BSPL.Domain.IRepository`1.BulkInsert(`0[])">
+            <summary>
+            Method to insert multiple entities in one transaction using Bulk Copy
+            </summary>
+            <param name="newEntities">>List of entities to be inserted</param>
+            <returns>Rows copied</returns>
+        </member>
+        <member name="M:BSPL.Domain.IRepository`1.InsertOrUpdate(`0[])">
+            <summary>
+            Method to insert array of entities if already exists then update the same (Upsert)
+            </summary>
+            <param name="entities">Entities to be upserted</param>
+            <returns>Entity List with new state</returns>
+        </member>
+        <member name="M:BSPL.Domain.IRepository`1.Delete(System.Int64[])">
+            <summary>
+            Method to delete many entities by Id
+            </summary>
+            <param name="ids">Id's of entities to be deleted</param>
+        </member>
+        <member name="M:BSPL.Domain.IRepository`1.Delete(`0[])">
+            <summary>
+            Method to delete many entities
+            </summary>
+            <param name="entities">entities to be deleted</param>
+        </member>
+        <member name="T:BSPL.Domain.IViewRepository`1">
+            <summary>
+            A repository which doesent mandate entity to be having Id field, or derived from IEntity
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+        </member>
+        <member name="M:BSPL.Domain.IViewRepository`1.Get(System.String,System.Object)">
+            <summary>
+            Get single entity or default for given filter
+            </summary>
+            <param name="field">Field on which equality filter condition will be applied</param>
+            <param name="valueEquals">value for equality filter</param>
+            <returns>entity for given filter or null if doesent exists</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:BSPL.Domain.IViewRepository`1.Get(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})" -->
+        <member name="M:BSPL.Domain.IViewRepository`1.ListAll">
+            <summary>
+            To get List of all entities exists in given table
+            </summary>
+            <returns>List of all entities</returns>
+        </member>
+        <member name="M:BSPL.Domain.IViewRepository`1.ListAll(System.String,System.Object)">
+            <summary>
+             get List of all entities exists in given table after applying given filter filed and value by equating them
+            </summary>
+            <param name="field">Field on which equality filter condition will be applied</param>
+            <param name="valueEquals">value for equality filter</param>
+            <returns>List of all entities after applying given filter</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:BSPL.Domain.IViewRepository`1.ListAll(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})" -->
+        <!-- Badly formed XML comment ignored for member "M:BSPL.Domain.IViewRepository`1.ListPage``1(System.Int32,System.Int32,System.Int32@,System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{`0,``0}},BSPL.Domain.SortOrder)" -->
+        <!-- Badly formed XML comment ignored for member "M:BSPL.Domain.IViewRepository`1.ListPage(System.Int32,System.Int32,System.Int32@,System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.String)" -->
+        <!-- Badly formed XML comment ignored for member "M:BSPL.Domain.IViewRepository`1.ListPage``1(System.Int32,System.Int32,System.Int32@,System.Linq.Expressions.Expression{System.Func{`0,``0}},BSPL.Domain.SortOrder)" -->
+        <member name="M:BSPL.Domain.IViewRepository`1.ListPage(System.Int32,System.Int32,System.Int32@,System.String)">
+            <summary>
+            List data in given and paged mannr after applying specified filter and sorting
+            </summary>
+            <param name="pageSize"></param>
+            <param name="pageNumber"></param>
+            <param name="totalResults"></param>
+            <param name="sortColumnAndOrder">
+            Sorting for given column would be ascending or spacify the order to be descending
+            [e.g. For column Name and descending sorting the value shoild be Name DESC ]
+            </param>
+            <returns>Data for given page number and size</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:BSPL.Domain.IViewRepository`1.ListTop``1(System.Int32,System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{`0,``0}},BSPL.Domain.SortOrder)" -->
+        <member name="M:BSPL.Domain.IViewRepository`1.ListTop``1(System.Int32,System.Linq.Expressions.Expression{System.Func{`0,``0}},BSPL.Domain.SortOrder)">
+            <summary>
+            List available top records after applying sorting
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="maxRows">Maximum rows to be returned</param>
+            <param name="orderBy">Fild to be used for orderby</param>
+            <param name="order">Sorting order default is Ascending</param>
+            <returns>List of top records after applying specified filter and sorting</returns>
+        </member>
+        <member name="M:BSPL.Domain.IViewRepository`1.ListTop(System.Int32,System.String)">
+            <summary>
+            List available top records after applying specified filter and sorting
+            </summary>
+            <param name="maxRows">Maximum rows to be returned</param>
+            <param name="sortColumnAndOrder">
+            Sorting for given column would be ascending or spacify the order to be descending
+            [e.g. For column Name and descending sorting the value shoild be Name DESC ]
+            </param>
+            <returns>List of top records after applying specified filter and sorting</returns>
+        </member>
+        <member name="M:BSPL.Domain.IViewRepository`1.SearchBy(System.String,System.String)">
+            <summary>
+            This is to do keyword search on any text field and returns all results
+            which have this filed which contains keyword
+            </summary>
+            <param name="field">Field to be searched</param>
+            <param name="contains">keyword to be searched</param>
+            <returns>records which have which contains keyword</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:BSPL.Domain.IViewRepository`1.Exists(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})" -->
+        <member name="M:BSPL.Domain.IViewRepository`1.Exists(System.String,System.Object)">
+            <summary>
+            Check if any record exists which given filter
+            </summary>
+            <param name="field">Field on which equality filter condition will be applied</param>
+            <param name="valueEquals">value for equality filter</param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Domain.IViewRepository`1.Count">
+            <summary>
+            Provide total jumber of records in table
+            </summary>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:BSPL.Domain.IViewRepository`1.Count(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})" -->
+        <member name="M:BSPL.Domain.IViewRepository`1.Count(System.String,System.Object)">
+            <summary>
+            Provide total number of records in table satifying filter
+            </summary>
+            <param name="field">Field on which equality filter condition will be applied</param>
+            <param name="valueEquals">value for equality filter</param>
+            <returns></returns>
+        </member>
+        <member name="T:BSPL.Domain.LinqExt.LinqExtensions">
+            <summary>
+            string parameter name based LINQ extensions
+            </summary>
+        </member>
+        <member name="M:BSPL.Domain.LinqExt.LinqExtensions.Page``1(System.Linq.IQueryable{``0},System.Int32,System.Int32)">
+            <summary>
+            Method to do required for getting data in paginated manner
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <param name="source"></param>
+            <param name="pageSize"></param>
+            <param name="pageNumber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Domain.LinqExt.LinqExtensions.OrderBy``1(System.Linq.IQueryable{``0},System.String,System.String)">
+            <summary>
+            Order by with column name and sort order as string
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="query"></param>
+            <param name="sortColumn"></param>
+            <param name="direction"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Domain.LinqExt.LinqExtensions.ContainsNoCase(System.String,System.String)">
+            <summary>
+            Contains query with ignore case
+            </summary>
+            <param name="self"></param>
+            <param name="match"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Domain.LinqExt.LinqExtensions.ConvertValue(System.String,System.String)">
+            <summary>
+            Convert type of object for given type as string
+            </summary>
+            <param name="typeInString"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Domain.LinqExt.LinqExtensions.FullTextSearch``1(System.Collections.Generic.List{``0},System.String)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
+            <param name="searchKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Domain.LinqExt.LinqExtensions.Where``1(System.Linq.IQueryable{``0},System.String,System.Object,BSPL.Domain.LinqExt.WhereOperation)">
+            <summary>
+            Dynamic where clouse
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="query"></param>
+            <param name="column"></param>
+            <param name="value"></param>
+            <param name="operation"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BSPL.Domain.LinqExt.QueryableExtensions">
+            <summary>
+            Dynamic query extentions
+            </summary>
+        </member>
+        <member name="M:BSPL.Domain.LinqExt.QueryableExtensions.OrderByDynamic``1(System.Linq.IQueryable{``0},System.String)">
+            <summary>
+            Orderby based on string column name and order
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="query"></param>
+            <param name="sortColumnAndOrder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Domain.LinqExt.QueryableExtensions.OrderByDynamic``1(System.Linq.IQueryable{``0},System.String,System.Boolean)">
+            <summary>
+            Orderby based on string column name
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="query"></param>
+            <param name="sortColumn"></param>
+            <param name="descending"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Domain.LinqExt.QueryableExtensions.DynamicWhere``1(System.Linq.IQueryable{``0},System.String,System.Object)">
+            <summary>
+            Extention to build dynamic where clouse
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="query"></param>
+            <param name="column"></param>
+            <param name="equalsValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Domain.LinqExt.QueryableExtensions.DynamicSearch``1(System.Linq.IQueryable{``0},System.String,System.String)">
+            <summary>
+            Building dynamic search based on contains clouse
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="query"></param>
+            <param name="column"></param>
+            <param name="contains"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Domain.LinqExt.QueryableExtensions.DynamicSingleOrDefault``1(System.Linq.IQueryable{``0},System.String,System.Object)">
+            <summary>
+            Single or default based on column name
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="query"></param>
+            <param name="column"></param>
+            <param name="equalsValue"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BSPL.Domain.LinqExt.WhereOperation">
+            <summary>
+            Enum to represent where clouse conditions
+            </summary>
+        </member>
+        <member name="T:BSPL.Domain.ReadOnlyRepository`1">
+            <summary>
+            Repository to access data in readonly manner
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+        </member>
+        <member name="M:BSPL.Domain.ReadOnlyRepository`1.Get(System.Int64)">
+            <summary>
+            Get an entity by Id
+            </summary>
+            <param name="id">Entity Id</param>
+            <returns>Entity for given Id</returns>
+        </member>
+        <member name="M:BSPL.Domain.ReadOnlyRepository`1.ListAll(System.Collections.Generic.IEnumerable{System.Int64})">
+            <summary>
+            To get List of all entities for given IDs
+            </summary>
+            <returns>all entities for given IDs</returns>
+        </member>
+        <member name="M:BSPL.Domain.ReadOnlyRepository`1.ListPage(System.Int32,System.Int32,System.Int32@,System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            List data in given and paged manner after applying specified filter and sorting by Id desc
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </summary>
+            <param name="pageSize"></param>
+            <param name="pageNumber"></param>
+            <param name="totalResults">Total records satisfying filter</param>
+            <param name="filter">
+            filter lambda
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </param>
+            <returns>Data for given page number and size order by id desc</returns>
+        </member>
+        <member name="M:BSPL.Domain.ReadOnlyRepository`1.ListPage(System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            List data in given and paged manner after applying specified filter and sorting by Id desc
+            </summary>
+            <param name="pageSize"></param>
+            <param name="pageNumber"></param>
+            <param name="totalResults">Total records satisfying filter</param>
+            <returns>Data for given page number and size order by id desc</returns>
+        </member>
+        <member name="M:BSPL.Domain.ReadOnlyRepository`1.ListTop(System.Int32)">
+            <summary>
+            List available top records after applying specified filter and sorting by Id Desc
+            </summary>
+            <param name="maxRows">Maximum rows to be returned</param>
+            <returns>List of top records after applying specified filter and sorting by Id Desc</returns>
+        </member>
+        <member name="T:BSPL.Domain.Repository`1">
+            <summary>
+            Generic class for Repository
+            </summary>
+            <typeparam name="TEntity">Type reference for Entity</typeparam>
+        </member>
+        <member name="P:BSPL.Domain.Repository`1.IsIdIdentityType">
+            <summary>
+            Just to check is Id column is identity type (Auto Generate) or not
+            </summary>
+        </member>
+        <member name="M:BSPL.Domain.Repository`1.Update(`0)">
+            <summary>
+            Method to Update an entity
+            </summary>
+            <param name="updatedEntity">Entity to be updated</param>
+            <returns>Updated entity</returns>
+        </member>
+        <member name="M:BSPL.Domain.Repository`1.BulkUpdate(`0[])">
+            <summary>
+            Method to update multiple entities in one transaction
+            </summary>
+            <param name="updatedEntities">List of entities to be updated</param>
+            <returns>Number of rows affected</returns>
+        </member>
+        <member name="M:BSPL.Domain.Repository`1.Insert(`0)">
+            <summary>
+            Method to insert an entity
+            </summary>
+            <param name="newEntity">Entity to be inserted</param>
+            <returns>Inserted Entity</returns>
+        </member>
+        <member name="M:BSPL.Domain.Repository`1.BulkInsert(`0[])">
+            <summary>
+            Method to insert multiple entities in one transaction using Bulk Copy
+            </summary>
+            <param name="newEntities">>List of entities to be inserted</param>
+            <returns>Rows inserted</returns>
+        </member>
+        <member name="M:BSPL.Domain.Repository`1.InsertOrUpdate(`0[])">
+            <summary>
+            Method to insert array of entities if already exists then update the same (Upsert)
+            </summary>
+            <param name="entities">Entities to be upserted</param>
+            <returns>Number of rows affected</returns>
+        </member>
+        <member name="M:BSPL.Domain.Repository`1.Delete(System.Int64[])">
+            <summary>
+            Method to delete many entities by Id
+            </summary>
+            <param name="ids">Id's of entities to be deleted</param>
+        </member>
+        <member name="M:BSPL.Domain.Repository`1.Delete(`0[])">
+            <summary>
+            Method to delete many entities
+            </summary>
+            <param name="entities">entities to be deleted</param>
+        </member>
+        <member name="T:BSPL.Domain.ViewRepository`1">
+            <summary>
+            Readonly repository which dose not mandate entity to be having Id field, or derived from IEntity
+            </summary>
+            <typeparam name="TEntity">Entity without Id</typeparam>
+        </member>
+        <member name="M:BSPL.Domain.ViewRepository`1.Get(System.String,System.Object)">
+            <summary>
+            Get single entity or default for given filter
+            </summary>
+            <param name="field">Field on which equality filter condition will be applied</param>
+            <param name="valueEquals">value for equality filter</param>
+            <returns>entity for given filter or null if dose not exists</returns>
+        </member>
+        <member name="M:BSPL.Domain.ViewRepository`1.Get(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Get single entity or default for given filter
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </summary>
+            <param name="filter">
+            filter lambda
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </param>
+            <returns>entity for given filter or null if dose no exists</returns>
+        </member>
+        <member name="M:BSPL.Domain.ViewRepository`1.ListAll">
+            <summary>
+            To get List of all entities exists in given table
+            </summary>
+            <returns>List of all entities</returns>
+        </member>
+        <member name="M:BSPL.Domain.ViewRepository`1.ListAll(System.String,System.Object)">
+            <summary>
+             get List of all entities exists in given table after applying given filter filed and value by equating them
+            </summary>
+            <param name="field">Field on which equality filter condition will be applied</param>
+            <param name="valueEquals">value for equality filter</param>
+            <returns>List of all entities after applying given filter</returns>
+        </member>
+        <member name="M:BSPL.Domain.ViewRepository`1.ListAll(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            get List of all entities exists in given table after applying given filter
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </summary>
+            <param name="filter">
+            filter lambda
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </param>
+            <returns>List of all entities after applying given filter</returns>
+        </member>
+        <member name="M:BSPL.Domain.ViewRepository`1.ListPage``1(System.Int32,System.Int32,System.Int32@,System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{`0,``0}},BSPL.Domain.SortOrder)">
+            <summary>
+            List data in given and paged manner after applying specified filter and sorting
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="pageSize"></param>
+            <param name="pageNumber"></param>
+            <param name="totalResults">Total records satisfying filter</param>
+            <param name="filter">
+            filter lambda
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </param>
+            <param name="orderBy">Field to be used for order by</param>
+            <param name="order">Sorting order default is Ascending</param>
+            <returns>Data for given page number and size</returns>
+        </member>
+        <member name="M:BSPL.Domain.ViewRepository`1.ListPage(System.Int32,System.Int32,System.Int32@,System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.String)">
+            <summary>
+            List data in given and paged manner after applying specified filter and sorting
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </summary>
+            <param name="pageSize"></param>
+            <param name="pageNumber"></param>
+            <param name="totalResults">Total records satisfying filter</param>
+            <param name="filter">
+            filter lambda
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </param>
+            <param name="sortColumnAndOrder">
+            Sorting for given column would be ascending or satisfying the order to be descending
+            [e.g. For column Name and descending sorting the value should be Name DESC ]
+            </param>
+            <returns>Data for given page number and size</returns>
+        </member>
+        <member name="M:BSPL.Domain.ViewRepository`1.ListPage``1(System.Int32,System.Int32,System.Int32@,System.Linq.Expressions.Expression{System.Func{`0,``0}},BSPL.Domain.SortOrder)">
+            <summary>
+            List data in given and paged manner after applying specified sorting
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="pageSize"></param>
+            <param name="pageNumber"></param>
+            <param name="totalResults">Total records satisfying filter</param>
+            <param name="orderBy">Field to be used for order by</param>
+            <param name="order">Sorting order default is Ascending</param>
+            <returns>Data for given page number and size</returns>
+        </member>
+        <member name="M:BSPL.Domain.ViewRepository`1.ListPage(System.Int32,System.Int32,System.Int32@,System.String)">
+            <summary>
+            List data in given and paged manner after applying specified filter and sorting
+            </summary>
+            <param name="pageSize"></param>
+            <param name="pageNumber"></param>
+            <param name="totalResults"></param>
+            <param name="sortColumnAndOrder">
+            Sorting for given column would be ascending or specify the order to be descending
+            [e.g. For column Name and descending sorting the value should be Name DESC ]
+            </param>
+            <returns>Data for given page number and size</returns>
+        </member>
+        <member name="M:BSPL.Domain.ViewRepository`1.ListTop``1(System.Int32,System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{`0,``0}},BSPL.Domain.SortOrder)">
+            <summary>
+            List available top records after applying specified filter and sorting
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="maxRows">Maximum rows to be returned</param>
+            <param name="filter">
+            filter lambda
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </param>
+            <param name="orderBy">Field to be used for order by</param>
+            <param name="order">Sorting order default is Ascending</param>
+            <returns>List of top records after applying specified filter and sorting</returns>
+        </member>
+        <member name="M:BSPL.Domain.ViewRepository`1.ListTop``1(System.Int32,System.Linq.Expressions.Expression{System.Func{`0,``0}},BSPL.Domain.SortOrder)">
+            <summary>
+            List available top records after applying sorting
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="maxRows">Maximum rows to be returned</param>
+            <param name="orderBy">Field to be used for order by</param>
+            <param name="order">Sorting order default is Ascending</param>
+            <returns>List of top records after applying specified filter and sorting</returns>
+        </member>
+        <member name="M:BSPL.Domain.ViewRepository`1.ListTop(System.Int32,System.String)">
+            <summary>
+            List available top records after applying specified filter and sorting
+            </summary>
+            <param name="maxRows">Maximum rows to be returned</param>
+            <param name="sortColumnAndOrder">
+            Sorting for given column would be ascending or specify the order to be descending
+            [e.g. For column Name and descending sorting the value should be Name DESC ]
+            </param>
+            <returns>List of top records after applying specified filter and sorting</returns>
+        </member>
+        <member name="M:BSPL.Domain.ViewRepository`1.SearchBy(System.String,System.String)">
+            <summary>
+            This is to do keyword search on any text field and returns all results
+            which have this filed which contains keyword
+            </summary>
+            <param name="field">Field to be searched</param>
+            <param name="contains">keyword to be searched</param>
+            <returns>records which have which contains keyword</returns>
+        </member>
+        <member name="M:BSPL.Domain.ViewRepository`1.Exists(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Check if any record exists which given filter
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </summary>
+            <param name="filter">
+            filter lambda
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </param>
+            <returns>If record exists for given condition</returns>
+        </member>
+        <member name="M:BSPL.Domain.ViewRepository`1.Exists(System.String,System.Object)">
+            <summary>
+            Check if any record exists which given filter
+            </summary>
+            <param name="field">Field on which equality filter condition will be applied</param>
+            <param name="valueEquals">value for equality filter</param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Domain.ViewRepository`1.Count">
+            <summary>
+            Provide total number of records in table
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Domain.ViewRepository`1.Count(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Provide total number of records in table satisfying filter
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </summary>
+            <param name="filter">
+            filter lambda
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </param>
+            <returns>number of records in table satisfying filter</returns>
+        </member>
+        <member name="M:BSPL.Domain.ViewRepository`1.Count(System.String,System.Object)">
+            <summary>
+            Provide total number of records in table satisfying filter
+            </summary>
+            <param name="field">Field on which equality filter condition will be applied</param>
+            <param name="valueEquals">value for equality filter</param>
+            <returns></returns>
+        </member>
+        <member name="T:BSPL.Facades.Facade`3">
+            <summary>
+            Readonly Facade
+            </summary>
+            <typeparam name="TRepo"></typeparam>
+            <typeparam name="TEntity"></typeparam>
+            <typeparam name="TModel"></typeparam>
+        </member>
+        <member name="F:BSPL.Facades.Facade`3.Repository">
+            <summary>
+            Repository for current facade
+            </summary>
+        </member>
+        <member name="M:BSPL.Facades.Facade`3.#ctor(`0)">
+            <summary>
+            Constructor for overriding repository creation and assigning custom repo
+            </summary>
+            <param name="repository"></param>
+        </member>
+        <member name="M:BSPL.Facades.Facade`3.Get(System.Int64)">
+            <summary>
+            Get an entity by Id
+            </summary>
+            <param name="id">Entity Id</param>
+            <returns>Entity for given Id</returns>
+        </member>
+        <member name="M:BSPL.Facades.Facade`3.Get(System.String,System.Object)">
+            <summary>
+            Get single entity or default for given filter
+            </summary>
+            <param name="field">Field on which equality filter condition will be applied</param>
+            <param name="valueEquals">value for equality filter</param>
+            <returns>entity for given filter or null if does not exists</returns>
+        </member>
+        <member name="M:BSPL.Facades.Facade`3.Get(System.Linq.Expressions.Expression{System.Func{`1,System.Boolean}})">
+            <summary>
+            Get single entity or default for given filter
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </summary>
+            <param name="filter">
+            filter lambda
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </param>
+            <returns>entity for given filter or null if does not exists</returns>
+        </member>
+        <member name="M:BSPL.Facades.Facade`3.ListAll">
+            <summary>
+            To get List of all entities exists in given table
+            </summary>
+            <returns>List of all entities</returns>
+        </member>
+        <member name="M:BSPL.Facades.Facade`3.ListAll(System.Int64[])">
+            <summary>
+            To get List of all entities for given IDs
+            </summary>
+            <returns>all entities for given IDs</returns>
+        </member>
+        <member name="M:BSPL.Facades.Facade`3.ListAll(System.String,System.Object)">
+            <summary>
+             get List of all entities exists in given table after applying given filter filed and value by equating them
+            </summary>
+            <param name="field">Field on which equality filter condition will be applied</param>
+            <param name="valueEquals">value for equality filter</param>
+            <returns>List of all entities after applying given filter</returns>
+        </member>
+        <member name="M:BSPL.Facades.Facade`3.ListAll(System.Linq.Expressions.Expression{System.Func{`1,System.Boolean}})">
+            <summary>
+            get List of all entities exists in given table after applying given filter
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </summary>
+            <param name="filter">
+            filter lambda
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </param>
+            <returns>List of all entities after applying given filter</returns>
+        </member>
+        <member name="M:BSPL.Facades.Facade`3.ListPage(System.Int32,System.Int32)">
+            <summary>
+            List data in given and paged manner after applying specified filter and sorting by Id desc
+            </summary>
+            <param name="pageSize"></param>
+            <param name="pageNumber"></param>
+            <returns>Data for given page number and size order by id desc</returns>
+        </member>
+        <member name="M:BSPL.Facades.Facade`3.ListPage``1(System.Int32,System.Int32,System.Linq.Expressions.Expression{System.Func{`1,System.Boolean}},System.Linq.Expressions.Expression{System.Func{`1,``0}},BSPL.Domain.SortOrder)">
+            <summary>
+            List data in given and paged manner after applying specified filter and sorting
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="pageSize"></param>
+            <param name="pageNumber"></param>
+            <param name="filter">
+            filter lambda
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </param>
+            <param name="orderBy">Filed to be used for order by</param>
+            <param name="order">Sorting order default is Ascending</param>
+            <returns>Data for given page number and size</returns>
+        </member>
+        <member name="M:BSPL.Facades.Facade`3.ListPage(System.Int32,System.Int32,System.Linq.Expressions.Expression{System.Func{`1,System.Boolean}},System.String)">
+            <summary>
+            List data in given and paged manner after applying specified filter and sorting
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </summary>
+            <param name="pageSize"></param>
+            <param name="pageNumber"></param>
+            <param name="filter">
+            filter lambda
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </param>
+            <param name="sortColumnAndOrder">
+            Sorting for given column would be ascending or specify the order to be descending
+            [e.g. For column Name and descending sorting the value should be Name DESC ]
+            </param>
+            <returns>Data for given page number and size</returns>
+        </member>
+        <member name="M:BSPL.Facades.Facade`3.ListPage``1(System.Int32,System.Int32,System.Linq.Expressions.Expression{System.Func{`1,``0}},BSPL.Domain.SortOrder)">
+            <summary>
+            List data in given and paged manner after applying specified sorting
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="pageSize"></param>
+            <param name="pageNumber"></param>
+            <param name="orderBy">Fild to be used for orderby</param>
+            <param name="order">Sorting order default is Ascending</param>
+            <returns>Data for given page number and size</returns>
+        </member>
+        <member name="M:BSPL.Facades.Facade`3.ListPage(System.Int32,System.Int32,System.String)">
+            <summary>
+            List data in given and paged manner after applying specified filter and sorting
+            </summary>
+            <param name="pageSize"></param>
+            <param name="pageNumber"></param>
+            <param name="sortColumnAndOrder">
+            Sorting for given column would be ascending or specify the order to be descending
+            [e.g. For column Name and descending sorting the value should be Name DESC ]
+            </param>
+            <returns>Data for given page number and size</returns>
+        </member>
+        <member name="M:BSPL.Facades.Facade`3.ListPage(System.Int32,System.Int32,System.Linq.Expressions.Expression{System.Func{`1,System.Boolean}})">
+            <summary>
+            List data in given and paged manner after applying specified filter and sorting by Id desc
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </summary>
+            <param name="pageSize"></param>
+            <param name="pageNumber"></param>
+            <param name="filter">
+            filter lambda
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </param>
+            <returns>Data for given page number and size order by id desc</returns>
+        </member>
+        <member name="M:BSPL.Facades.Facade`3.ListTop(System.Int32)">
+            <summary>
+            List available top records after applying specified filter and sorting by Id Desc
+            </summary>
+            <param name="maxRows">Maximum rows to be returned</param>
+            <returns>List of top records after applying specified filter and sorting by Id Desc</returns>
+        </member>
+        <member name="M:BSPL.Facades.Facade`3.ListTop``1(System.Int32,System.Linq.Expressions.Expression{System.Func{`1,System.Boolean}},System.Linq.Expressions.Expression{System.Func{`1,``0}},BSPL.Domain.SortOrder)">
+            <summary>
+            List available top records after applying specified filter and sorting
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="maxRows">Maximum rows to be returned</param>
+            <param name="filter">
+            filter lambda
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </param>
+            <param name="orderBy">Fild to be used for orderby</param>
+            <param name="order">Sorting order default is Ascending</param>
+            <returns>List of top records after applying specified filter and sorting</returns>
+        </member>
+        <member name="M:BSPL.Facades.Facade`3.ListTop``1(System.Int32,System.Linq.Expressions.Expression{System.Func{`1,``0}},BSPL.Domain.SortOrder)">
+            <summary>
+            List available top records after applying sorting
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="maxRows">Maximum rows to be returned</param>
+            <param name="orderBy">Fild to be used for orderby</param>
+            <param name="order">Sorting order default is Ascending</param>
+            <returns>List of top records after applying specified filter and sorting</returns>
+        </member>
+        <member name="M:BSPL.Facades.Facade`3.ListTop(System.Int32,System.String)">
+            <summary>
+            List available top records after applying specified filter and sorting
+            </summary>
+            <param name="maxRows">Maximum rows to be returned</param>
+            <param name="sortColumnAndOrder">
+            Sorting for given column would be ascending or specify the order to be descending
+            [e.g. For column Name and descending sorting the value should be Name DESC ]
+            </param>
+            <returns>List of top records after applying specified filter and sorting</returns>
+        </member>
+        <member name="M:BSPL.Facades.Facade`3.SearchBy(System.String,System.String)">
+            <summary>
+            This is to do keyword search on any text field and returns all results
+            which have this filed which contains keyword
+            </summary>
+            <param name="field">Field to be searched</param>
+            <param name="contains">keyword to be searched</param>
+            <returns>records which have which contains keyword</returns>
+        </member>
+        <member name="M:BSPL.Facades.Facade`3.Exists(System.Linq.Expressions.Expression{System.Func{`1,System.Boolean}})">
+            <summary>
+            Check if any record exists which given filter
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </summary>
+            <param name="filter">
+            filter lambda
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </param>
+            <returns>If record exists for given condition</returns>
+        </member>
+        <member name="M:BSPL.Facades.Facade`3.Exists(System.String,System.Object)">
+            <summary>
+            Check if any record exists which given filter
+            </summary>
+            <param name="field">Field on which equality filter condition will be applied</param>
+            <param name="valueEquals">value for equality filter</param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Facades.Facade`3.Count">
+            <summary>
+            Provide total jumber of records in table
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Facades.Facade`3.Count(System.Linq.Expressions.Expression{System.Func{`1,System.Boolean}})">
+            <summary>
+            Provide total number of records in table satifying filter
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </summary>
+            <param name="filter">
+            filter lambda
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </param>
+            <returns>number of records in table satifying filter</returns>
+        </member>
+        <member name="M:BSPL.Facades.Facade`3.Count(System.String,System.Object)">
+            <summary>
+            Provide total number of records in table satifying filter
+            </summary>
+            <param name="field">Field on which equality filter condition will be applied</param>
+            <param name="valueEquals">value for equality filter</param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Facades.Facade`3.GetNameValues(System.String,System.String,System.String,System.String)">
+            <summary>
+            Get List Of AutoCompleteModel for given name and value fields and keywords for given filter field
+            </summary>
+            <param name="nameField"></param>
+            <param name="valueField"></param>
+            <param name="filterColumn"></param>
+            <param name="filterValue">keyword for filtering</param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Facades.Facade`3.Map(`1)">
+            <summary>
+            To map entity to model
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Facades.Facade`3.MapList(System.Collections.Generic.IEnumerable{`1})">
+            <summary>
+            To map list of entities to list of models
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Facades.Facade`3.GetInternal(System.Int64)">
+            <summary>
+            To override behaviour of repository get method with id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BSPL.Facades.IFacade`2">
+            <summary>
+            Interface for read-only Facade
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <typeparam name="TModel"></typeparam>
+        </member>
+        <member name="M:BSPL.Facades.IFacade`2.Get(System.Int64)">
+            <summary>
+            Get an entity by Id
+            </summary>
+            <param name="id">Entity Id</param>
+            <returns>Entity for given Id</returns>
+        </member>
+        <member name="M:BSPL.Facades.IFacade`2.Get(System.String,System.Object)">
+            <summary>
+            Get single entity or default for given filter
+            </summary>
+            <param name="field">Field on which equality filter condition will be applied</param>
+            <param name="valueEquals">value for equality filter</param>
+            <returns>entity for given filter or null if does not exists</returns>
+        </member>
+        <member name="M:BSPL.Facades.IFacade`2.Get(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Get single entity or default for given filter
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </summary>
+            <param name="filter">
+            filter lambda
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </param>
+            <returns>entity for given filter or null if does not exists</returns>
+        </member>
+        <member name="M:BSPL.Facades.IFacade`2.ListAll">
+            <summary>
+            To get List of all entities exists in given table
+            </summary>
+            <returns>List of all entities</returns>
+        </member>
+        <member name="M:BSPL.Facades.IFacade`2.ListAll(System.Int64[])">
+            <summary>
+            To get List of all entities for given IDs
+            </summary>
+            <param name="ids">Id list for which entities to be returned</param>
+            <returns>List of all entities</returns>
+        </member>
+        <member name="M:BSPL.Facades.IFacade`2.ListAll(System.String,System.Object)">
+            <summary>
+             get List of all entities exists in given table after applying given filter filed and value by equating them
+            </summary>
+            <param name="field">Field on which equality filter condition will be applied</param>
+            <param name="valueEquals">value for equality filter</param>
+            <returns>List of all entities after applying given filter</returns>
+        </member>
+        <member name="M:BSPL.Facades.IFacade`2.ListAll(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            get List of all entities exists in given table after applying given filter
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </summary>
+            <param name="filter">
+            filter lambda
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </param>
+            <returns>List of all entities after applying given filter</returns>
+        </member>
+        <member name="M:BSPL.Facades.IFacade`2.ListPage(System.Int32,System.Int32,System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.String)">
+            <summary>
+            List data in given and paged manner after applying specified filter and sorting
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </summary>
+            <param name="pageSize"></param>
+            <param name="pageNumber"></param>
+            <param name="filter">
+            filter lambda
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </param>
+            <param name="sortColumnAndOrder">
+            Sorting for given column would be ascending or specify the order to be descending
+            [e.g. For column Name and descending sorting the value should be Name DESC ]
+            </param>
+            <returns>Data for given page number and size</returns>
+        </member>
+        <member name="M:BSPL.Facades.IFacade`2.ListPage``1(System.Int32,System.Int32,System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{`0,``0}},BSPL.Domain.SortOrder)">
+            <summary>
+            List data in given and paged manner after applying specified filter and sorting
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="pageSize"></param>
+            <param name="pageNumber"></param>
+            <param name="filter">
+            filter lambda
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </param>
+            <param name="orderBy">Field to be used for order by</param>
+            <param name="order">Sorting order default is Ascending</param>
+            <returns>Data for given page number and size</returns>
+        </member>
+        <member name="M:BSPL.Facades.IFacade`2.ListPage``1(System.Int32,System.Int32,System.Linq.Expressions.Expression{System.Func{`0,``0}},BSPL.Domain.SortOrder)">
+            <summary>
+            List data in given and paged manner after applying specified sorting
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="pageSize"></param>
+            <param name="pageNumber"></param>
+            <param name="orderBy">Field to be used for order by</param>
+            <param name="order">Sorting order default is Ascending</param>
+            <returns>Data for given page number and size</returns>
+        </member>
+        <member name="M:BSPL.Facades.IFacade`2.ListPage(System.Int32,System.Int32,System.String)">
+            <summary>
+            List data in given and paged manner after applying specified filter and sorting
+            </summary>
+            <param name="pageSize"></param>
+            <param name="pageNumber"></param>
+            <param name="sortColumnAndOrder">
+            Sorting for given column would be ascending or specify the order to be descending
+            [e.g. For column Name and descending sorting the value should be Name DESC ]
+            </param>
+            <returns>Data for given page number and size</returns>
+        </member>
+        <member name="M:BSPL.Facades.IFacade`2.ListPage(System.Int32,System.Int32,System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            List data in given and paged manner after applying specified filter and sorting by Id desc
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </summary>
+            <param name="pageSize"></param>
+            <param name="pageNumber"></param>
+            <param name="filter">
+            filter lambda
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </param>
+            <returns>Data for given page number and size order by id desc</returns>
+        </member>
+        <member name="M:BSPL.Facades.IFacade`2.ListPage(System.Int32,System.Int32)">
+            <summary>
+            List data in given and paged manner after applying specified filter and sorting by Id desc
+            </summary>
+            <param name="pageSize"></param>
+            <param name="pageNumber"></param>
+            <returns>Data for given page number and size order by id desc</returns>
+        </member>
+        <member name="M:BSPL.Facades.IFacade`2.ListTop(System.Int32)">
+            <summary>
+            List available top records after applying specified filter and sorting by Id Desc
+            </summary>
+            <param name="maxRows">Maximum rows to be returned</param>
+            <returns>List of top records after applying specified filter and sorting by Id Desc</returns>
+        </member>
+        <member name="M:BSPL.Facades.IFacade`2.ListTop``1(System.Int32,System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{`0,``0}},BSPL.Domain.SortOrder)">
+            <summary>
+            List available top records after applying specified filter and sorting
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 amp;&amp; a.c == c1) || a.d == d1 
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="maxRows">Maximum rows to be returned</param>
+            <param name="filter">
+            filter lambda
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 amp;&amp; a.c == c1) || a.d == d1 
+            </param>
+            <param name="orderBy">Filed to be used for order by</param>
+            <param name="order">Sorting order default is Ascending</param>
+            <returns>List of top records after applying specified filter and sorting</returns>
+        </member>
+        <member name="M:BSPL.Facades.IFacade`2.ListTop``1(System.Int32,System.Linq.Expressions.Expression{System.Func{`0,``0}},BSPL.Domain.SortOrder)">
+            <summary>
+            List available top records after applying sorting
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="maxRows">Maximum rows to be returned</param>
+            <param name="orderBy">Field to be used for order by</param>
+            <param name="order">Sorting order default is Ascending</param>
+            <returns>List of top records after applying specified filter and sorting</returns>
+        </member>
+        <member name="M:BSPL.Facades.IFacade`2.ListTop(System.Int32,System.String)">
+            <summary>
+            List available top records after applying specified filter and sorting
+            </summary>
+            <param name="maxRows">Maximum rows to be returned</param>
+            <param name="sortColumnAndOrder">
+            Sorting for given column would be ascending or specify the order to be descending
+            [e.g. For column Name and descending sorting the value should be Name DESC ]
+            </param>
+            <returns>List of top records after applying specified filter and sorting</returns>
+        </member>
+        <member name="M:BSPL.Facades.IFacade`2.SearchBy(System.String,System.String)">
+            <summary>
+            This is to do keyword search on any text field and returns all results
+            which have this filed which contains keyword
+            </summary>
+            <param name="field">Field to be searched</param>
+            <param name="contains">keyword to be searched</param>
+            <returns>records which have which contains keyword</returns>
+        </member>
+        <member name="M:BSPL.Facades.IFacade`2.Exists(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Check if any record exists which given filter
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </summary>
+            <param name="filter">
+            filter lambda
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </param>
+            <returns>If record exists for given condition</returns>
+        </member>
+        <member name="M:BSPL.Facades.IFacade`2.Exists(System.String,System.Object)">
+            <summary>
+            Check if any record exists which given filter
+            </summary>
+            <param name="field">Field on which equality filter condition will be applied</param>
+            <param name="valueEquals">value for equality filter</param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Facades.IFacade`2.Count">
+            <summary>
+            Provide total number of records in table
+            </summary>
+            <returns>number of records in table</returns>
+        </member>
+        <member name="M:BSPL.Facades.IFacade`2.Count(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Provide total number of records in table satisfying filter
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </summary>
+            <param name="filter">
+            filter lambda
+            (multiple filters can be part of same expression only)
+            [ e.g. (a => (a.b == b1 &amp;&amp; a.c == c1) || a.d == d1 
+            </param>
+            <returns>number of records in table satisfying filter</returns>
+        </member>
+        <member name="M:BSPL.Facades.IFacade`2.Count(System.String,System.Object)">
+            <summary>
+            Provide total number of records in table satisfying filter
+            </summary>
+            <param name="field">Field on which equality filter condition will be applied</param>
+            <param name="valueEquals">value for equality filter</param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Facades.IFacade`2.GetNameValues(System.String,System.String,System.String,System.String)">
+            <summary>
+            Get List Of AutoCompleteModel for given name and value fields and keywords for given filter field
+            </summary>
+            <param name="nameField"></param>
+            <param name="valueField"></param>
+            <param name="filterColumn"></param>
+            <param name="filterValue">keyword for filtering</param>
+            <returns></returns>
+        </member>
+        <member name="T:BSPL.Facades.WritableFacade`3">
+            <summary>
+            Writable Facade for CRUD requirements
+            </summary>
+            <typeparam name="TRepo"></typeparam>
+            <typeparam name="TEntity"></typeparam>
+            <typeparam name="TModel"></typeparam>
+        </member>
+        <member name="M:BSPL.Facades.WritableFacade`3.#ctor(`0)">
+            <summary>
+            Parameterized constructor for assigning desired repository
+            </summary>
+            <param name="repository"></param>
+        </member>
+        <member name="M:BSPL.Facades.WritableFacade`3.Update(System.Int64,`2,System.String)">
+            <summary>
+            To update a entity in DB using companion model
+            </summary>
+            <param name="id"></param>
+            <param name="updatedModel"></param>
+            <param name="updatedBy"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Facades.WritableFacade`3.UpdateInternal(`1,System.String)">
+            <summary>
+            Actual update method
+            </summary>
+            <param name="entity"></param>
+            <param name="updatedBy"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Facades.WritableFacade`3.Insert(`2,System.String)">
+            <summary>
+            Method to insert entity in db
+            </summary>
+            <param name="newModel"></param>
+            <param name="insertedBy"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Facades.WritableFacade`3.InsertOrUpdate(`2,System.String)">
+            <summary>
+            Method for mixed rows some for update and some for insert
+            So existing Id based rows would be updated and non existing ones would be inserted
+            </summary>
+            <param name="model">Model to be mapped to entity and inserted in DB</param>
+            <param name="doneBy"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Facades.WritableFacade`3.InsertOrUpdate(`2[],System.String)">
+            <summary>
+            Method for mixed rows some for update and some for insert
+            So existing Id based rows would be updated and non existing ones would be inserted
+            </summary>
+            <param name="models">Model to be mapped to entity and inserted in DB</param>
+            <param name="doneBy"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Facades.WritableFacade`3.Delete(`2)">
+            <summary>
+            Deleting entity corresponding to model
+            </summary>
+            <param name="model"></param>
+        </member>
+        <member name="M:BSPL.Facades.WritableFacade`3.Delete(System.Int64)">
+            <summary>
+            Deleting an entity with its id
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:BSPL.Facades.WritableFacade`3.Map(`2,System.String,System.Boolean)">
+            <summary>
+            To map any model to entity, also update CreatedBy, CreatedOn, UpdatedBy and UpdatedOn fields
+            </summary>
+            <param name="model"></param>
+            <param name="user"></param>
+            <param name="forInsert"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Facades.WritableFacade`3.Map(`2[],System.String,System.Boolean)">
+            <summary>
+            To map many models to entity list, also update CreatedBy, CreatedOn, UpdatedBy and UpdatedOn fields
+            </summary>
+            <param name="models"></param>
+            <param name="user"></param>
+            <param name="forInsert"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BSPL.Web.AccountControllerBase">
+            <summary>
+            To be inhereted in account controller
+            </summary>
+            <example>
+            @model BSPL.Common.Models.LoginModel
+            
+            
+            &lt;div class="modal-content"&gt;
+            &lt;div class="input-container" id="userInputDialog" title="Login Dialog"&gt;
+            &lt;form id="reportForm" method="post"&gt;
+            &lt;h3&gt;@ViewBag.L["Login"]&lt;/h3&gt;
+            @if (!string.IsNullOrWhiteSpace(Model.Error))
+            {
+            &lt;h4 style="color: red"&gt;@Model.Error&lt;/h4&gt;
+            }
+            &lt;fieldset&gt;
+            &lt;input placeholder='@ViewBag.L["Email ID"]' name="UserID" value="@Model.UserID" type="text" tabindex="1" required autofocus&gt;
+            &lt;/fieldset&gt;
+            &lt;fieldset&gt;
+            &lt;input placeholder='@ViewBag.L["Password"]' name="Password" type="password" tabindex="2" required&gt;
+            &lt;/fieldset&gt;
+            
+            @if (Model.SupportedLanguages.Count &gt; 1)
+            {
+            &lt;fieldset&gt;
+            &lt;select name="Locale"&gt;
+            @foreach (var l in Model.SupportedLanguages)
+            {
+            if (l.Name.Equals(Model.Locale))
+            {
+            &lt;option value="@l.Name" selected="selected"&gt;@l.DisplayName&lt;/option&gt;
+            }
+            else
+            {
+            &lt;option value="@l.Name"&gt;@l.DisplayName&lt;/option&gt;
+            }
+            }
+            &lt;/select&gt;
+            &lt;/fieldset&gt;
+            }
+            else
+            {
+            &lt;input type="hidden" name="Locale" value="@Model.Locale" /&gt;
+            }
+            
+            &lt;fieldset&gt;
+            &lt;button name="Login" type="submit"&gt;@ViewBag.L["Login"]&lt;/button&gt;
+            &lt;/fieldset&gt;
+            &lt;/form&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+            </example>
+        </member>
+        <member name="F:BSPL.Web.AccountControllerBase.webUserService">
+            <summary>
+            To provide user data
+            </summary>
+        </member>
+        <member name="F:BSPL.Web.AccountControllerBase.activeLigins">
+            <summary>
+            List of active logins in system
+            </summary>
+        </member>
+        <member name="M:BSPL.Web.AccountControllerBase.#ctor(BSPL.Web.IWebUserService)">
+            <summary>
+            If overriding this class, need to call this constructor with IWebUserService as parameter
+            </summary>
+            <param name="webUserService">IWebUserService</param>
+        </member>
+        <member name="M:BSPL.Web.AccountControllerBase.Login">
+            <summary>
+            To be used to bind with login view in get mode
+            a tipical login view will look like eaxmple
+            </summary>
+            <returns>Action Result with LoginModel</returns>
+            <example>
+            @model BSPL.Common.Models.LoginModel
+            
+            
+            &lt;div class="modal-content"&gt;
+            &lt;div class="input-container" id="userInputDialog" title="Login Dialog"&gt;
+            &lt;form id="reportForm" method="post"&gt;
+            &lt;h3&gt;@ViewBag.L["Login"]&lt;/h3&gt;
+            @if (!string.IsNullOrWhiteSpace(Model.Error))
+            {
+            &lt;h4 style="color: red"&gt;@Model.Error&lt;/h4&gt;
+            }
+            &lt;fieldset&gt;
+            &lt;input placeholder='@ViewBag.L["Email ID"]' name="UserID" value="@Model.UserID" type="text" tabindex="1" required autofocus&gt;
+            &lt;/fieldset&gt;
+            &lt;fieldset&gt;
+            &lt;input placeholder='@ViewBag.L["Password"]' name="Password" type="password" tabindex="2" required&gt;
+            &lt;/fieldset&gt;
+            
+            @if (Model.SupportedLanguages.Count &gt; 1)
+            {
+            &lt;fieldset&gt;
+            &lt;select name="Locale"&gt;
+            @foreach (var l in Model.SupportedLanguages)
+            {
+            if (l.Name.Equals(Model.Locale))
+            {
+            &lt;option value="@l.Name" selected="selected"&gt;@l.DisplayName&lt;/option&gt;
+            }
+            else
+            {
+            &lt;option value="@l.Name"&gt;@l.DisplayName&lt;/option&gt;
+            }
+            }
+            &lt;/select&gt;
+            &lt;/fieldset&gt;
+            }
+            else
+            {
+            &lt;input type="hidden" name="Locale" value="@Model.Locale" /&gt;
+            }
+            
+            &lt;fieldset&gt;
+            &lt;button name="Login" type="submit"&gt;@ViewBag.L["Login"]&lt;/button&gt;
+            &lt;/fieldset&gt;
+            &lt;/form&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+            </example>
+        </member>
+        <member name="M:BSPL.Web.AccountControllerBase.Login(BSPL.Common.Models.LoginModel,System.String)">
+            <summary>
+            Login post request handler
+            </summary>
+            <param name="model">Will be auto handled bu view</param>
+            <param name="returnUrl">Will be auto passed on</param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Web.AccountControllerBase.BeforeLogin(BSPL.Common.Models.LoginModel)">
+            <summary>
+            To be overridden by user is multilingual handling is done e.g.
+            </summary>
+            <param name="model"></param>
+            <returns>User should return Localizer for localization</returns>
+            <example>
+            ViewBag.L = localizer; // can be used in view for localization
+            return localizer;
+            </example>
+        </member>
+        <member name="M:BSPL.Web.AccountControllerBase.LoginApi(BSPL.Common.Models.LoginModel)">
+            <summary>
+            To be used for Ajax Login requests e.g.
+            </summary>
+            <param name="model"></param>
+            <returns>JSON e.g. {HasError = false; Error = null; } HasError=false means login was successful</returns>
+            <example>
+            {"userID":"YourUserId","password":"YourPassword","remember":true}
+            </example>
+        </member>
+        <member name="M:BSPL.Web.AccountControllerBase.ActiveUsers">
+            <summary>
+            List down all active users as of now
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Web.AccountControllerBase.Poll">
+            <summary>
+            Session Polling
+            </summary>
+            <returns>True if session is valid</returns>
+        </member>
+        <member name="M:BSPL.Web.AccountControllerBase.OnPollSuccess(BSPL.Common.Models.IWebUser)">
+            <summary>
+            Method to be used if consumer want to add custom activity on sesson polling and only if sesson is valid
+            </summary>
+            <param name="user">Current loggedin user</param>
+            <returns>Response which will be used as response to the Poll Request</returns>
+        </member>
+        <member name="M:BSPL.Web.AccountControllerBase.Logout">
+            <summary>
+            Logout request handler
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Web.AccountControllerBase.LogoutApi">
+            <summary>
+            Ajax based Logout request handler
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Web.AccountControllerBase.HelpApi">
+            <summary>
+            Call method to get help text and other info around how to use AJAX based login
+            </summary>
+            <returns>Help Text</returns>
+        </member>
+        <member name="M:BSPL.Web.AccountControllerBase.AccessDenied(System.String)">
+            <summary>
+            This method will be called by framework whenever 
+            </summary>
+            <returns>403 Page</returns>
+        </member>
+        <member name="T:BSPL.Web.ApiControllerAutoBase`2">
+            <summary>
+            To be used when no custom facade is desired and WebApi for Read and Write both operations is required
+            </summary>
+            <typeparam name="TEntity">Type of DB Entity</typeparam>
+            <typeparam name="TModel">Type of Model</typeparam>
+        </member>
+        <member name="M:BSPL.Web.ApiControllerAutoBase`2.#ctor(BSPL.Facades.IWritableFacade{`0,`1})">
+            <summary>
+            Constructer for DI the facade
+            </summary>
+            <param name="facade"></param>
+        </member>
+        <member name="T:BSPL.Web.ApiControllerBase`3">
+            <summary>
+            To be used when custom facade is desired and WebApi for Read and Write both operations is required
+            </summary>
+            <typeparam name="TFacade">Type of Facade to used</typeparam>
+            <typeparam name="TEntity">Type of DB Entity</typeparam>
+            <typeparam name="TModel">Type of Model</typeparam>
+        </member>
+        <member name="M:BSPL.Web.ApiControllerBase`3.Post(`2)">
+            <summary>
+            Send model data via HttpPost to insert record in DB
+            This method internally calls facade.Insert(model, LoggedInUser)
+            One should override facade.Insert(model, LoggedInUser) if any custom behavior is desired while inserting
+            e.g. Insert into other table post insert using newly created Id
+            Or can override this method itself if using through ApiControllerAutoBase
+            </summary>
+            <param name="model">Model to be inserted as Post payload</param>
+            <returns>Web Response with insertion result and inserted model with newly created id</returns>
+        </member>
+        <member name="M:BSPL.Web.ApiControllerBase`3.Put(System.Int64,`2)">
+            <summary>
+            Send model data via HttpPut to Update record in DB with entity id in URL
+            This method internally calls facade.Update(id, model, LoggedInUser)
+            One should override facade.Update(id, model, LoggedInUser) if any custom behavior is desired while updating
+            Or can override this method itself if using through ApiControllerAutoBase
+            </summary>
+            <param name="id">Entity Id in URL</param>
+            <param name="model">Model as put request Payload</param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Web.ApiControllerBase`3.Delete(System.Int32)">
+            <summary>
+            Call this URL via HttpDelete method with entity id in URL for entity to be deleted
+            This method internally calls facade.Delete(id)
+            One should override facade.Delete(id) if any custom behavior is desired while deleting
+            e.g. Cascade delete
+            Or can override this method itself if using through ApiControllerAutoBase
+            </summary>
+            <param name="id">Id of entity to be deleted</param>
+            <returns>Result of the action</returns>
+        </member>
+        <member name="M:BSPL.Web.ApiControllerBase`3.InternalPost(`2,BSPL.Facades.IWritableFacade{`1,`2})">
+            <summary>
+            Override this method to interrupt and manipulate Insert
+            Send model data via HttpPost to insert record in DB
+            This method internally calls facade.Insert(model, LoggedInUser)
+            One should override facade.Insert(model, LoggedInUser) if any custom behavior is desired while inserting
+            e.g. Insert into other table post insert using newly created Id
+            Or can override this method itself if using through ApiControllerAutoBase
+            </summary>
+            <param name="model">Model to be inserted as Post payload</param>
+            <param name="facade">Facade on which crud operations are done</param>
+            <returns>Web Response with insertion result and inserted model with newly created id</returns>
+        </member>
+        <member name="M:BSPL.Web.ApiControllerBase`3.InternalPut(System.Int64,`2,BSPL.Facades.IWritableFacade{`1,`2})">
+            <summary>
+            Override this method to interrupt and manipulate Update
+            Send model data via HttpPut to Update record in DB with entity id in URL
+            This method internally calls facade.Update(id, model, LoggedInUser)
+            One should override facade.Update(id, model, LoggedInUser) if any custom behavior is desired while updating
+            Or can override this method itself if using through ApiControllerAutoBase
+            </summary>
+            <param name="id">Entity Id in URL</param>
+            <param name="model">Model as put request Payload</param>
+            <param name="facade">Facade on which crud operations are done</param>
+            <returns>Web Response with updated result</returns>
+        </member>
+        <member name="M:BSPL.Web.ApiControllerBase`3.InternalDelete(System.Int32,BSPL.Facades.IWritableFacade{`1,`2})">
+            <summary>
+            Override this method to interrupt and manipulate Delete
+            Call this URL via HttpDelete method with entity id in URL for entity to be deleted
+            This method internally calls facade.Delete(id)
+            One should override facade.Delete(id) if any custom behavior is desired while deleting
+            e.g. Cascade delete
+            Or can override this method itself if using through ApiControllerAutoBase
+            </summary>
+            <param name="id">Id of entity to be deleted</param>
+            <param name="facade">Facade on which crud operations are done</param>
+            <returns>Result of the action</returns>
+        </member>
+        <member name="P:BSPL.Web.ApiControllerBase`3.LoggedInUser">
+            <summary>
+            Get Name of logged-in user
+            </summary>
+        </member>
+        <member name="T:BSPL.Web.ApiControllerReadOnlyAutoBase`2">
+            <summary>
+            To be used when no custom facade is desired and WebApi for Read only operations is required
+            </summary>
+            <typeparam name="TEntity">Type of DB Entity</typeparam>
+            <typeparam name="TModel">Type of Model</typeparam>
+        </member>
+        <member name="T:BSPL.Web.ApiControllerReadOnlyBase`3">
+            <summary>
+            To be used when custom readonly facade is desired and WebApi for Read only operations is required
+            </summary>
+            <typeparam name="TFacade">Type of Facade to used</typeparam>
+            <typeparam name="TEntity">Type of DB Entity</typeparam>
+            <typeparam name="TModel">Type of Model</typeparam>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:BSPL.Web.ApiControllerReadOnlyBase`3.GetPreFilters(System.Collections.Specialized.NameValueCollection)" -->
+        <member name="M:BSPL.Web.ApiControllerReadOnlyBase`3.FullListingRestrictions">
+            <summary>
+            Please override and return false if full listing is not desired
+            </summary>
+            <returns>full listing is desired or not</returns>
+        </member>
+        <member name="M:BSPL.Web.ApiControllerReadOnlyBase`3.Get">
+            <summary>
+            Get list of all entities after prefilters if any and pagination rules
+            Calls facade.ListChronologicalPage(pageSize, pageNumber, sortBy=null, params preFilters)
+            or facade.ListAll(preFilters) or facade.ListAll() depending on parameters
+            For pagination parameters should be provided by http headers named
+            "pageSize", "pageNumber" and "sortBy" (optional, for sorting)
+            alternatively or for testing these parameters can be passed as query string
+            </summary>
+            <returns>Entity list</returns>
+        </member>
+        <member name="M:BSPL.Web.ApiControllerReadOnlyBase`3.Get(System.Int64)">
+            <summary>
+            Get specific entity/model for given Id (provided in url)
+            </summary>
+            <param name="id">Id of entity/model to be returned</param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Web.ApiControllerReadOnlyBase`3.GetBy(System.String,System.Int64)">
+            <summary>
+            Use this method will return all records after filtering by field equating to value as number 
+            </summary>
+            <param name="field"></param>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Web.ApiControllerReadOnlyBase`3.GetBy(System.String,System.String)">
+            <summary>
+            Use this method will return all records after filtering by field equating to value as string 
+            </summary>
+            <param name="field"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Web.ApiControllerReadOnlyBase`3.GetBy(System.String,System.DateTime)">
+            <summary>
+            Use this method will return all records after filtering by field equating to value as date 
+            </summary>
+            <param name="field"></param>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Web.ApiControllerReadOnlyBase`3.GetSearchBy(System.String,System.String)">
+            <summary>
+            Use this method will return all records after keyword (contains) search on given field by keyword 
+            </summary>
+            <param name="field"></param>
+            <param name="keyword"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Web.ApiControllerReadOnlyBase`3.GetNameValues(System.String,System.String)">
+            <summary>
+            Use this method will return name value records as list all 
+            </summary>
+            <param name="nameField"></param>
+            <param name="valueField"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Web.ApiControllerReadOnlyBase`3.GetNameValues(System.String,System.String,System.String,System.String)">
+            <summary>
+            Use this method will return name value records, mainly to do lookup or select records after filtering by field equating to value as string 
+            </summary>
+            <param name="nameField"></param>
+            <param name="valueField"></param>
+            <param name="filterColumn"></param>
+            <param name="filterValue"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BSPL.Web.BasicAuthenticationHandler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:BSPL.Web.BasicAuthenticationHandler.#ctor(Microsoft.Extensions.Options.IOptionsMonitor{Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions},Microsoft.Extensions.Logging.ILoggerFactory,System.Text.Encodings.Web.UrlEncoder,Microsoft.AspNetCore.Authentication.ISystemClock,BSPL.Web.IWebUserService)">
+            <summary>
+            
+            </summary>
+            <param name="options"></param>
+            <param name="logger"></param>
+            <param name="encoder"></param>
+            <param name="clock"></param>
+            <param name="userService"></param>
+        </member>
+        <member name="M:BSPL.Web.BasicAuthenticationHandler.HandleAuthenticateAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BSPL.Web.BasicAuthenticationHandler.HandleChallengeAsync(Microsoft.AspNetCore.Authentication.AuthenticationProperties)">
+            <summary>
+            To handle the case when no auth params are present in header. So to instruct browser to provide authentication header
+            </summary>
+            <param name="properties"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BSPL.Web.IWebUserService">
+            <summary>
+            Service to create web user from any repository to have authentication and authorization in place
+            </summary>
+        </member>
+        <member name="M:BSPL.Web.IWebUserService.GetWebUser(BSPL.Common.Models.LoginModel,System.String)">
+            <summary>
+            Have to implement this method to provide conversion between LoginModel to IWebUser
+            </summary>
+            <param name="model">Login Model</param>
+            <param name="uniqueClientIdentifier">Unique Request identifier to detect duplicate login</param>
+            <returns>Constructed IWebUser</returns>
+            <example>
+            protected override IWebUser getWebUser(LoginModel model)
+            {
+               var webUser = new UserFacade().GetUserBy(model.UserID, model.Password)?.GetWebUser(model);
+               return webUser; 
+            }
+            </example>
+        </member>
+        <member name="T:BSPL.Web.JsGridBuilder`1">
+            <summary>
+            @(Html.JsGridBuilder&lt;XYZModel&gt;().Sorting().ApiUrl("/Api/XYZs").Dropdown("SomeID","/Api/Masters/name/id").Render())
+            </summary>
+            <typeparam name="TModel">Type of XYZModel for which grid is required</typeparam>
+        </member>
+        <member name="M:BSPL.Web.JsGridBuilder`1.Dropdown(System.String,System.String,System.String,System.Boolean,System.String)">
+            <summary>
+            Specifying field with DropDownList 
+            </summary>
+            <param name="field">Field to which dropdown is required to attached</param>
+            <param name="header">Column Header (title) for display purpose</param>
+            <param name="options">Optional, Web Api URL to fetch options else wil be taken as
+            "/api/{Title}s/name/id" or options in json e.g. { 'M': 'Male', 'F': 'Female' } </param>
+            <param name="isHidden">Optional, default false, if column to be hided fromm grid or not </param>
+            <param name="dependsOn">Optional, if its dependent of any other field</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
