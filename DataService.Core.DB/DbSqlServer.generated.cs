@@ -129,7 +129,7 @@ namespace DataModel
 	public partial class PasswordTbl : BSPL.Domain.IEntity
 	{
 		[PrimaryKey, Identity   ] public long      Id        { get; set; } // bigint
-		[Column,     NotNull    ] public string    UserId    { get; set; } // nvarchar(max)
+		[Column,        Nullable] public long?     UserId    { get; set; } // bigint
 		[Column,     NotNull    ] public string    Password  { get; set; } // nvarchar(max)
 		[Column,     NotNull    ] public DateTime  CreatedOn { get; set; } // datetime
 		[Column,        Nullable] public string    CreatedBy { get; set; } // nvarchar(max)
@@ -142,7 +142,7 @@ namespace DataModel
 	public partial class UserSessionTbl : BSPL.Domain.IEntity
 	{
 		[PrimaryKey, Identity   ] public long      Id        { get; set; } // bigint
-		[Column,     NotNull    ] public int       UserId    { get; set; } // int
+		[Column,        Nullable] public long?     UserId    { get; set; } // bigint
 		[Column,     NotNull    ] public string    Username  { get; set; } // nvarchar(max)
 		[Column,     NotNull    ] public string    JwtToken  { get; set; } // nvarchar(max)
 		[Column,     NotNull    ] public DateTime  IssuedAt  { get; set; } // datetime

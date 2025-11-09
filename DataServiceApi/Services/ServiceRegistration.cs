@@ -25,6 +25,9 @@ namespace DataServiceAPI.Services
             services.AddScoped<IReadOnlyRepository<MenuReviewTbl>, ReadOnlyRepository<MenuReviewTbl>>();
             services.AddScoped<IRepository<MenuReviewTbl>, Repository<MenuReviewTbl>>();
 
+            services.AddScoped<IReadOnlyRepository<PasswordTbl>, ReadOnlyRepository<PasswordTbl>>();
+            services.AddScoped<IRepository<PasswordTbl>, Repository<PasswordTbl>>();
+
             services.AddScoped<UserFacade>();
             services.AddScoped<MenuCategoryFacade>();
             services.AddScoped<MenuFacade>();

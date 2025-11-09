@@ -26,30 +26,39 @@ namespace DataServiceAPI.Endpoints
             group.MapPut("/", (IRepository<UserTable> repo, UserTable user) => repo.Update(user));
             
             group.MapGet("/{id}", (IReadOnlyRepository<UserTable> repo, long id) => repo.Get(id));
-            
-            //group.MapPost("/login", (
-            //    [FromBody] LoginRequestModel request,
-            //    UserFacade userFacade) =>
-            //    {
-            //        var isAuthenticated = userFacade.AuthenticateUser(request.Username, request.Password);
-            //        return Results.Ok(isAuthenticated);
-            //    });
 
-            //group.MapPost("/Jwt/login", (
-            //    [FromBody] LoginRequestModel request,
-            //    UserFacade userFacade,
-            //    JwtTokenService tokenService) =>
-            //    {
-            //        var user = userFacade.AuthenticateUserJwt(request.Username, request.Password);
+            group.MapPost("/login", (
+                [FromBody] LoginRequestModel request,
+                UserFacade userFacade) =>
+                {
+                    var isAuthenticated = userFacade.AuthenticateUser(request.Username, request.Password);
+                    return Results.Ok(isAuthenticated);
+                });
 
-            //        if (user == null)
-            //            return Results.Unauthorized();
-
-            //        var token = tokenService.GenerateToken(user.Username);
-            //        return Results.Ok(new { token });
-            //    });
-
+            //JWT Login
             group.MapPost("/Jwt/login", (
+                [FromBody] LoginRequestModel request,
+                UserFacade userFacade,
+                JwtTokenService tokenService) =>
+                    {
+                        var user = userFacade.AuthenticateUserJwt(request.Username, request.Password);
+                        if (user == null)
+                            return Results.Json(new { success = false, message = "Invalid username or password" }, statusCode: 401);
+
+                        var token = tokenService.GenerateToken(user.Phone);
+
+                        userFacade.SaveToken(token, user.Id);
+
+                        return Results.Ok(new
+                        {
+                            success = true,
+                            token,
+                            userId = user.Id,
+                            message = "Login successful"
+                        });
+                    });
+
+            group.MapPost("/Jwt/login1", (
                 [FromBody] LoginRequestModel request,
                 UserFacade userFacade,
                 JwtTokenService tokenService,
@@ -92,62 +101,67 @@ namespace DataServiceAPI.Endpoints
                         userId = user.Id
                     });
                 });
-
+            
+            //JWT Validate
             group.MapPost("/Jwt/validate", (
                 [FromBody] TokenValidationRequest request,
                 JwtTokenService tokenService,
                 IReadOnlyRepository<UserSessionTbl> sessionRepo) =>
                 {
-                    // 1️⃣ Check if the session exists for the userId
                     var session = sessionRepo.ListAll().FirstOrDefault(s => s.UserId == request.UserId);
                     if (session == null)
                     {
                         return Results.Json(new { isValid = false, message = "Session not found" }, statusCode: 401);
                     }
 
-                    // 2️⃣ Check if the token matches the stored token
                     if (session.JwtToken != request.Token)
                     {
                         return Results.Json(new { isValid = false, message = "Token mismatch" }, statusCode: 401);
                     }
 
-                    // 3️⃣ Verify token cryptographically using JwtTokenService
                     var isTokenValid = tokenService.ValidateToken(request.Token, out var username);
                     if (!isTokenValid)
                     {
                         return Results.Json(new { isValid = false, message = "Invalid or expired token" }, statusCode: 401);
                     }
 
-                    // 4️⃣ Optional: Check if token’s username matches stored username
                     if (!string.Equals(session.Username, username, StringComparison.OrdinalIgnoreCase))
                     {
                         return Results.Json(new { isValid = false, message = "Token does not match user" }, statusCode: 401);
                     }
 
-                    // ✅ Token valid
                     return Results.Ok(new { isValid = true, username });
                 });
+            
+            //User Register
             group.MapPost("/register", (
                 [FromBody] UserRegisterModel request,
                 UserFacade userFacade) =>
+                {
+                    var result = userFacade.RegisterUser(request);
+
+                    if (!result.IsSuccess)
+                        return Results.Json(new { success = false, message = result.Message }, statusCode: 400);
+
+                    return Results.Ok(new { success = true, message = result.Message });
+                });
+
+            //User Profile
+            group.MapGet("/profile/{userId:long}", (
+                long userId,
+                UserFacade userFacade) =>
                     {
-                        var user = new UserTable
+                        var user = userFacade.GetUserProfile(userId);
+
+                        if (user == null)
+                            return Results.Json(new { success = false, message = "User not found" }, statusCode: 404);
+
+                        return Results.Ok(new
                         {
-                            Phone = request.Phone,
-                            Email = request.Email,
-                            PasswordHash = request.Password // raw password (will be hashed in Facade)
-                        };
-
-                        var result = userFacade.RegisterUser(user);
-
-                        if (!result.IsSuccess)
-                            return Results.Json(new { success = false, message = result.Message }, statusCode: 400);
-
-                        return Results.Ok(new { success = true, message = result.Message });
+                            success = true,
+                            data = user
+                        });
                     });
-
-
-
 
         }
     }
