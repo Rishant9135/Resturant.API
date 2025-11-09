@@ -127,6 +127,25 @@ namespace DataServiceAPI.Endpoints
                     // ✅ Token valid
                     return Results.Ok(new { isValid = true, username });
                 });
+            group.MapPost("/register", (
+                [FromBody] UserRegisterModel request,
+                UserFacade userFacade) =>
+                    {
+                        var user = new UserTable
+                        {
+                            Phone = request.Phone,
+                            Email = request.Email,
+                            PasswordHash = request.Password // raw password (will be hashed in Facade)
+                        };
+
+                        var result = userFacade.RegisterUser(user);
+
+                        if (!result.IsSuccess)
+                            return Results.Json(new { success = false, message = result.Message }, statusCode: 400);
+
+                        return Results.Ok(new { success = true, message = result.Message });
+                    });
+
 
 
 
