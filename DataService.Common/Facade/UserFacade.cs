@@ -38,7 +38,7 @@ namespace ElectionData.Common.Facade
         {
             var user = userRepository
                 .ListAll()
-                .FirstOrDefault(u => u.Phone == username || u.Email == username);
+                .FirstOrDefault(u => (u.Phone == username || u.Email == username) && u.IsActive == true && u.IsDeleted == false);
 
             if (user == null)
                 return null;
@@ -115,13 +115,13 @@ namespace ElectionData.Common.Facade
             var users = userRepository.ListAll();
 
             if (!string.IsNullOrEmpty(phone) &&
-                users.Any(u => u.Phone != null && u.Phone.Equals(phone, StringComparison.OrdinalIgnoreCase)))
+                users.Any(u => u.Phone != null && u.Phone.Equals(phone, StringComparison.OrdinalIgnoreCase) && u.IsActive == true && u.IsDeleted == false))
             {
                 return $"User already exists with this phone number: {phone}";
             }
 
             if (!string.IsNullOrEmpty(email) &&
-                users.Any(u => u.Email != null && u.Email.Equals(email, StringComparison.OrdinalIgnoreCase)))
+                users.Any(u => u.Email != null && u.Email.Equals(email, StringComparison.OrdinalIgnoreCase) && u.IsActive == true && u.IsDeleted == false))
             {
                 return $"User already exists with this email: {email}";
             }

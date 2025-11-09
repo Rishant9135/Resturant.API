@@ -162,7 +162,6 @@ namespace DataServiceAPI.Endpoints
                             data = user
                         });
                     });
-
         }
     }
 }
