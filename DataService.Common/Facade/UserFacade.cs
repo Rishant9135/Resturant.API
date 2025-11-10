@@ -17,13 +17,16 @@ namespace ElectionData.Common.Facade
         private readonly IRepository<UserTable> userRepository;
         private readonly IRepository<PasswordTbl> passwordRepository;
         private readonly IRepository<UserSessionTbl> userSessionRepository;
+        private readonly IRepository<LoginHistoryTbl> loginHistoryRepository;
         public UserFacade(IRepository<UserTable> userRepository,
                             IRepository<PasswordTbl> passwordRepository,
-                            IRepository<UserSessionTbl> userSessionRepository) : base(userRepository)
+                            IRepository<UserSessionTbl> userSessionRepository,
+                            IRepository<LoginHistoryTbl> loginHistoryRepository) : base(userRepository)
         {
             this.userRepository = userRepository;
             this.passwordRepository = passwordRepository;
             this.userSessionRepository = userSessionRepository;
+            this.loginHistoryRepository = loginHistoryRepository;
         }
         public bool AuthenticateUser(string username, string password)
         {
@@ -34,7 +37,7 @@ namespace ElectionData.Common.Facade
 
             return user != null;
         }
-        public UserTable? AuthenticateUserJwt(string username, string password)
+        public UserTable? AuthenticateUserJwt1(string username, string password)
         {
             var user = userRepository
                 .ListAll()
@@ -48,6 +51,35 @@ namespace ElectionData.Common.Facade
 
             return verificationResult == PasswordVerificationResult.Success ? user : null;
         }
+        public UserTable? AuthenticateUserJwt(string username, string password)
+        {
+            var user = userRepository
+                .ListAll()
+                .FirstOrDefault(u =>
+                    (u.Phone == username || u.Email == username) &&
+                    u.IsActive && !u.IsDeleted);
+
+            if (user == null)
+            {
+                MaintainLoginHistory(null, false, username, "User not found");
+                return null;
+            }
+
+            var passwordHasher = new PasswordHasher<UserTable>();
+            var verificationResult = passwordHasher.VerifyHashedPassword(user, user.PasswordHash, password);
+
+            if (verificationResult != PasswordVerificationResult.Success)
+            {
+                MaintainLoginHistory(user.Id, false, username, "Invalid password");
+                return null;
+            }
+
+            // ✅ Successful login
+            MaintainLoginHistory(user.Id, true, username, "Login successful");
+
+            return user;
+        }
+
         public void SaveToken(string token, long userId)
         {
             var existingSession = userSessionRepository
@@ -71,7 +103,6 @@ namespace ElectionData.Common.Facade
             }
             else
             {
-                // Insert new session
                 var userSession = new UserSessionTbl
                 {
                     UserId = userId,
@@ -82,10 +113,28 @@ namespace ElectionData.Common.Facade
                     ExpiresAt = issuedAtIST.AddDays(30), // Example: 30-Days expiry
                     IsActive = true
                 };
-
                 userSessionRepository.Insert(userSession);
             }
         }
+        public void MaintainLoginHistory(long? userId, bool isSuccessful, string? username = null, string? failureReason = null)
+        {
+            var issuedAtIST = TimeZoneInfo.ConvertTimeFromUtc(
+                DateTime.UtcNow,
+                TimeZoneInfo.FindSystemTimeZoneById("India Standard Time")
+            );
+
+            var loginHistory = new LoginHistoryTbl
+            {
+                UserId = userId ?? 0, // for failed login attempts, userId may not exist
+                CreatedOn = issuedAtIST,
+                CreatedBy = "System",
+                IsSuccessful = isSuccessful,
+                FailureReason = isSuccessful ? null : failureReason
+            };
+
+            loginHistoryRepository.Insert(loginHistory);
+        }
+
         public (bool IsSuccess, string Message) RegisterUser(UserRegisterModel register)
         {
             var existenceMessage = CheckUserExistence(register.Phone, register.Email);

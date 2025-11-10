@@ -28,6 +28,9 @@ namespace DataServiceAPI.Services
             services.AddScoped<IReadOnlyRepository<PasswordTbl>, ReadOnlyRepository<PasswordTbl>>();
             services.AddScoped<IRepository<PasswordTbl>, Repository<PasswordTbl>>();
 
+            services.AddScoped<IReadOnlyRepository<LoginHistoryTbl>, ReadOnlyRepository<LoginHistoryTbl>>();
+            services.AddScoped<IRepository<LoginHistoryTbl>, Repository<LoginHistoryTbl>>();
+
             services.AddScoped<UserFacade>();
             services.AddScoped<MenuCategoryFacade>();
             services.AddScoped<MenuFacade>();

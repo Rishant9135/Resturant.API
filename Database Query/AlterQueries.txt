@@ -1,0 +1,15 @@
+
+
+ALTER TABLE LoginHistoryTbl
+ALTER COLUMN UserId BIGINT;
+
+-- Step 1: Rename the old column if you want to keep data temporarily (optional)
+EXEC sp_rename 'LoginHistoryTbl.Password', 'OldPassword', 'COLUMN';
+
+-- Step 2: Add the new column FailureReason
+ALTER TABLE LoginHistoryTbl
+ADD FailureReason NVARCHAR(MAX) NULL;
+
+-- Step 3: (Optional) Drop old column if you no longer need it
+ALTER TABLE LoginHistoryTbl
+DROP COLUMN OldPassword;

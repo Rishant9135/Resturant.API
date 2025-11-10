@@ -65,16 +65,16 @@ namespace DataModel
 	[Table(Schema="dbo", Name="LoginHistoryTbl")]
 	public partial class LoginHistoryTbl : BSPL.Domain.IEntity
 	{
-		[PrimaryKey, Identity   ] public long      Id           { get; set; } // bigint
-		[Column,     NotNull    ] public string    UserId       { get; set; } // nvarchar(max)
-		[Column,     NotNull    ] public string    Password     { get; set; } // nvarchar(max)
-		[Column,     NotNull    ] public bool      IsSuccessful { get; set; } // bit
-		[Column,        Nullable] public string    IpAddress    { get; set; } // nvarchar(max)
-		[Column,        Nullable] public string    DeviceId     { get; set; } // nvarchar(max)
-		[Column,     NotNull    ] public DateTime  CreatedOn    { get; set; } // datetime
-		[Column,        Nullable] public string    CreatedBy    { get; set; } // nvarchar(max)
-		[Column,        Nullable] public DateTime? UpdatedOn    { get; set; } // datetime
-		[Column,        Nullable] public string    UpdatedBy    { get; set; } // nvarchar(max)
+		[PrimaryKey, Identity   ] public long      Id            { get; set; } // bigint
+		[Column,        Nullable] public long?     UserId        { get; set; } // bigint
+		[Column,     NotNull    ] public bool      IsSuccessful  { get; set; } // bit
+		[Column,        Nullable] public string    IpAddress     { get; set; } // nvarchar(max)
+		[Column,        Nullable] public string    DeviceId      { get; set; } // nvarchar(max)
+		[Column,     NotNull    ] public DateTime  CreatedOn     { get; set; } // datetime
+		[Column,        Nullable] public string    CreatedBy     { get; set; } // nvarchar(max)
+		[Column,        Nullable] public DateTime? UpdatedOn     { get; set; } // datetime
+		[Column,        Nullable] public string    UpdatedBy     { get; set; } // nvarchar(max)
+		[Column,        Nullable] public string    FailureReason { get; set; } // nvarchar(max)
 	}
 
 	[Table(Schema="dbo", Name="MenuCategoriesTbl")]
